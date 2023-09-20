@@ -11,11 +11,11 @@ class SignUp extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot!.innerHTML = `
-    <link rel="stylesheet" href="../src/components/signup/login.css">
+    this.shadowRoot.innerHTML = `
+    <link rel="stylesheet" href="./signup.css">
 
     <div class="form-container">
-    <img class="cutImg" src="./img/signUpCut.png">
+    <img class="cutImg" src="signUpCut.png">
     <div class="form-block">
      
       <form>
