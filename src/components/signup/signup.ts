@@ -11,7 +11,7 @@ class SignUp extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot.innerHTML = `
+    this.shadowRoot!.innerHTML = `
     <link rel="stylesheet" href="./signup.css">
 
     <div class="form-container">
