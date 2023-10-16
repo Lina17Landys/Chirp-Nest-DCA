@@ -11,6 +11,7 @@ class settingMenu extends HTMLElement {
   render() {
     this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="setting.css">
+        <div class="container">
         <div class="sidebar">
                 
         <nav>
@@ -51,6 +52,7 @@ class settingMenu extends HTMLElement {
 </li>
 
     </ul>
+    </div>
     </div>
         `;
   }
