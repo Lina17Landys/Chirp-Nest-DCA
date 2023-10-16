@@ -30,13 +30,9 @@ class SignUp extends HTMLElement {
       </div>
     `;
 
-    const loginButton = this.shadowRoot!.getElementById("loginButton");
-    loginButton!.addEventListener("click", this.redirectToLogin);
+
   }
 
-  redirectToLogin() {
-    window.location.href = "./login.ts"; 
-  }
 }
 
 customElements.define("signup-container", SignUp);

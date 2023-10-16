@@ -1,3 +1,5 @@
+import { SignUp } from "../export";
+
 class Login extends HTMLElement {
   constructor() {
     super();
@@ -8,9 +10,6 @@ class Login extends HTMLElement {
     this.render();
   }
 
-  redirectToSignUp() {
-    window.location.href = "./components/signup/signup.ts"; 
-  }
 
   render() {
     this.shadowRoot!.innerHTML = `
@@ -19,8 +18,8 @@ class Login extends HTMLElement {
         <img class="cutImg" src="./img/loginCut.png">
         <div class="form-block">
           <form>
-            <button id="signupButton">Sign Up</button>
-            <h1>User</h1>
+          <a href="../src/components/signup/signup.ts"><button>Sign Up</button></a>
+          <h1>User</h1>
             <input type="email" placeholder="E-mail" />
             <h1>Password</h1>
             <input type="password" placeholder="Password" />
@@ -37,10 +36,9 @@ class Login extends HTMLElement {
       </div>
     `;
 
-    const signupButton = this.shadowRoot!.getElementById("signupButton");
-    signupButton!.addEventListener("click", this.redirectToSignUp);
   }
 }
 
 customElements.define("login-container", Login);
 export default Login;
+
