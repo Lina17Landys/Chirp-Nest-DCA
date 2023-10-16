@@ -32,7 +32,10 @@ class AccInfo extends HTMLElement {
 
     <div class="menu-right">
     <div class="top">
-       <h1>Account Information</h1>
+    <h1 class="centered-header">
+    <img src="../../../img/ArrowIcon.png">
+    Account Information
+</h1>
 
     </div>
 

@@ -10,6 +10,15 @@ body {
   overflow: hidden;
 }
 
+.centered-header {
+    display: flex;
+    align-items: center;
+}
+
+.centered-header img {
+    margin-right: 10px; 
+}
+
 .container {
   display: flex;
 }
