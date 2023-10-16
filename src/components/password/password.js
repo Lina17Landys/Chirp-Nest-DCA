@@ -62,8 +62,7 @@ class Password extends HTMLElement {
  </li>
 
 </ul>
-<button>Save changes</button>
-
+<button class="save-btn">Save changes</button>
     </div>
     </div>
       `;
