@@ -1,5 +1,3 @@
-console.log("hola");
-
 class SignUp extends HTMLElement {
   constructor() {
     super();
@@ -12,32 +10,34 @@ class SignUp extends HTMLElement {
 
   render() {
     this.shadowRoot!.innerHTML = `
-    <link rel="stylesheet" href="./signup.css">
+      <link rel="stylesheet" href="./signup.css">
+      <div class="form-container">
+        <img class="cutImg" src="signUpCut.png">
+        <div class="form-block">
+          <form>
+            <button id="loginButton">Log in</button>
+            <h1>E-mail</h1>
+            <input type="email" placeholder="E-mail" />
+            <h1>User</h1>
+            <input type="password" placeholder="User name" />
+            <h1>Password</h1>
+            <input type="email" placeholder="Password" />
+            <h1>Repeat password</h1>
+            <input type="password" placeholder="Password" />
+            <button class="btn">Create account</button>
+          </form>
+        </div>
+      </div>
+    `;
 
-    <div class="form-container">
-    <img class="cutImg" src="signUpCut.png">
-    <div class="form-block">
-     
-      <form>
-      <button>Log in</button>
+    const loginButton = this.shadowRoot!.getElementById("loginButton");
+    loginButton!.addEventListener("click", this.redirectToLogin);
+  }
 
-        <h1>E-mail</h1>
-        <input type="email" placeholder="E-mail" />
-        <h1>User</h1>
-        <input type="password" placeholder="User name" />
-        <h1>Password</h1>
-        <input type="email" placeholder="Password" />
-        <h1>Repeat password</h1>
-        <input type="password" placeholder="Password" />
-
-       
-        <button class="btn">Create account</button>
-   
-  </div>
-  
-          `;
+  redirectToLogin() {
+    window.location.href = "./login.ts"; 
   }
 }
 
 customElements.define("signup-container", SignUp);
-export default SignUp
+export default SignUp;
