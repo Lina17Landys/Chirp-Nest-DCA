@@ -47,7 +47,6 @@ nav ul li a {
 }
 
 .sidebar {
-    flex: 1;
     position: sticky;
     top: 0;
     padding: 0 20px;
@@ -55,6 +54,7 @@ nav ul li a {
 
 .menu-right {
     flex: 1;
+    margin-left: 10px;
 }
 .sidebar nav {
     color: white;
@@ -142,3 +142,47 @@ nav ul li a {
     text-decoration: none;
     color: black; 
   }
+
+.bold li {
+    margin-bottom: 10px;
+}
+.m-right {
+    list-style: none;
+    padding: 0;
+}
+
+.m-right li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+}
+
+.m-right li img {
+    margin-right: 10px; 
+}
+
+.text-container {
+    margin-bottom: 10px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.m-right li p {
+    margin: 5px;
+}
+
+.top {
+    margin-bottom: 20px;
+}
+
+.bold-p  {
+    font-weight: bold;
+}
+
+.logo {
+    margin-top: 25px;
+    width: 45px;
+    height: 65px;
+}

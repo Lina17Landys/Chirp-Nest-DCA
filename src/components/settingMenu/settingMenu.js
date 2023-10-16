@@ -31,27 +31,45 @@ class settingMenu extends HTMLElement {
     </div>
 
     <div class="menu-right">
+    <div class="top">
     <h1>Settings</h1>
     <p>See the information about your account, change your information or update it.</p>
+    </div>
+
     <ul class="m-right">
+    <li class="bold">
+        <img src="../../../img/user2Icon.png">
+        <div class="text-container">
+            <p class="bold-p">Account Information</p>
+            <p>See your account information.</p>
+        </div>
+    </li>
 
-<li class="bold"><img src="../../../img/profileIcon.png">Account Information
-<p>See your account information.</p>
-</li>
+    <li class="bold">
+        <img src="../../../img/keyIcon.png">
+        <div class="text-container">
+            <p class="bold-p">Change your password</p>
+            <p>Change or update your password.</p>
+        </div>
+    </li>
 
-<li class="bold"><img src="../../../img/keyIcon.png">Change your password
-<p>Change or update your password.</p>
-</li>
+    <li class="bold">
+        <img src="../../../img/mailIcon.png">
+        <div class="text-container">
+            <p class="bold-p">Change your E-mail</p>
+            <p>Change or update your E-mail.</p>
+        </div>
+    </li>
 
-<li class="bold"><img src="../../../img/mailIcon.png">Change your E-mail
-<p>Change or update your E-mail.</p>
-</li>
+    <li class="bold">
+        <img src="../../../img/circleIcon.png">
+        <div class="text-container">
+            <p class="bold-p">Deactivate your account</p>
+            <p>Find out how you can deactivate or suspend your account.</p>
+        </div>
+    </li>
+</ul>
 
-<li class="bold"><img src="../../../img/circleIcon.png">Deactivate your account
-<p>Find out how you can deactivate or suspend your account.</p>
-</li>
-
-    </ul>
     </div>
     </div>
         `;
