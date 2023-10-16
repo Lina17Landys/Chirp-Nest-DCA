@@ -1,3 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(73, 71, 142, 1), rgba(18, 34, 58, 1));
+    height: 100vh;
+  }
+  
+  * {
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+  }
+  
 nav {
     color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -86,23 +98,6 @@ nav ul li a {
     background-color: #9b4d75;
 }
 
-.like-button,
-.retweet-button {
-    display: inline-flex;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    margin-right: 20px;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.like-button:hover,
-.retweet-button:hover {
-    color: #BE6C96;
-}
 
 .icon {
     margin-right: 5px;

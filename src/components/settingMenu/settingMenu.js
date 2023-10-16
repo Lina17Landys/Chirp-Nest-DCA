@@ -9,7 +9,7 @@ class settingMenu extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot!.innerHTML = `
+    this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="setting.css">
         <div class="sidebar">
                 
@@ -22,7 +22,7 @@ class settingMenu extends HTMLElement {
             <li><img src="../../../img/bellIcon.png"><a href="#">Notifications</a></li>
             <li><img src="../../../img/profileIcon.png"><a href="#">Profile</a></li>
                 <div class="user">
-                    <img src="pick.jpg" alt="Profile Picture">
+                    <img src="../../../img/profilePic.jpg" alt="Profile Picture">
                     <button class="tweet-button">Tweet</button>
                 </div>
             </ul>
