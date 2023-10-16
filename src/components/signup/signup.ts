@@ -40,3 +40,4 @@ class SignUp extends HTMLElement {
 }
 
 customElements.define("signup-container", SignUp);
+export default SignUp

@@ -1,5 +1,3 @@
-console.log("hola");
-
 class Login extends HTMLElement {
   constructor() {
     super();
