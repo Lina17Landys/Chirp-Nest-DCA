@@ -28,6 +28,30 @@ class settingMenu extends HTMLElement {
             </ul>
         </nav>
     </div>
+
+    <div class="menu-right">
+    <h1>Settings</h1>
+    <p>See the information about your account, change your information or update it.</p>
+    <ul class="m-right">
+
+<li class="bold"><img src="../../../img/profileIcon.png">Account Information
+<p>See your account information.</p>
+</li>
+
+<li class="bold"><img src="../../../img/keyIcon.png">Change your password
+<p>Change or update your password.</p>
+</li>
+
+<li class="bold"><img src="../../../img/mailIcon.png">Change your E-mail
+<p>Change or update your E-mail.</p>
+</li>
+
+<li class="bold"><img src="../../../img/circleIcon.png">Deactivate your account
+<p>Find out how you can deactivate or suspend your account.</p>
+</li>
+
+    </ul>
+    </div>
         `;
   }
 }
