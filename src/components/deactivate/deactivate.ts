@@ -1,3 +1,5 @@
+import styles from "./styles.css"
+
 class Deactivate extends HTMLElement {
     constructor() {
       super();
@@ -9,7 +11,14 @@ class Deactivate extends HTMLElement {
     }
   
     render() {
-      this.shadowRoot.innerHTML = `
+      if (this.shadowRoot) {
+        this.shadowRoot.innerHTML = ``;
+  
+        const css = this.ownerDocument.createElement("style");
+        css.innerHTML = styles;
+        this.shadowRoot?.appendChild(css);
+  
+        this.shadowRoot!.innerHTML += `
         <link rel="stylesheet" href="./Deactivate.css">
         <div class="container">
         <div class="sidebar">
@@ -58,7 +67,7 @@ To use your current @username or email address with a different account, change 
     </div>
       `;
   
-  
+      }
     }
   
   }
