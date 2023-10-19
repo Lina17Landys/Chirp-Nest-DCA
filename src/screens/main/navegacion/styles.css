@@ -86,19 +86,6 @@ nav ul li a {
   background-color: #9b4d75;
 }
 
-.like-button,
-.retweet-button {
-  display: inline-flex;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  margin-right: 20px;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
 .like-button:hover,
 .retweet-button:hover {
   color: #be6c96;

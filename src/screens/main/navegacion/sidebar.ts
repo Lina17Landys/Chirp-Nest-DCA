@@ -20,8 +20,6 @@ export default class Sidebar extends HTMLElement {
 
       this.shadowRoot!.innerHTML += `
     
-
-        
       <div class="sidebar">
                 
       <nav>
