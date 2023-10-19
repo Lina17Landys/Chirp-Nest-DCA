@@ -19,7 +19,6 @@ class Deactivate extends HTMLElement {
         this.shadowRoot?.appendChild(css);
   
         this.shadowRoot!.innerHTML += `
-        <link rel="stylesheet" href="./Deactivate.css">
         <div class="container">
         <div class="sidebar">
                 
