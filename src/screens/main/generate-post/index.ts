@@ -4,7 +4,7 @@ interface TweetData {
   content: string;
 }
 
-export default class App extends HTMLElement {
+export default class BaseTweets extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -91,4 +91,4 @@ export default class App extends HTMLElement {
   }
 }
 
-customElements.define("app-container", App);
+customElements.define("BaseTweets-container", BaseTweets);
