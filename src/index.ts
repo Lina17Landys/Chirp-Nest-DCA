@@ -1,5 +1,3 @@
-import styles from "./styles.css";
-
 import "./screens/dashboard"
 import "./screens/login"
 import "./components/export"

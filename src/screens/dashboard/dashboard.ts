@@ -1,4 +1,8 @@
 import styles from "./styles.css";
+import { addObserver, appState, dispatch } from "../../store/index";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+
 
 class dashboard extends HTMLElement {
   constructor() {
@@ -6,8 +10,12 @@ class dashboard extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     this.render();
+    const button = this.shadowRoot?.querySelector('#loginButton');
+    button?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.LOGIN))
+    })
   }
 
   render() {
