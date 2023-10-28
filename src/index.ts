@@ -1,5 +1,5 @@
 import "./screens/dashboard"
-import "./screens/login"
+import "./screens/login/login"
 import "./components/export"
 import { addObserver } from "./store/index";
 import { appState } from "./store/index";

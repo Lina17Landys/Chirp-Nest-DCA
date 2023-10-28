@@ -1,4 +1,7 @@
-import { SignUp } from "../../components/export";
+import { dispatch } from "../../store/index";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+
 import styles from "./styles.css"
 class Login extends HTMLElement {
   constructor() {
@@ -11,6 +14,9 @@ class Login extends HTMLElement {
   }
 
 
+  handleLoginButton() {
+    dispatch(navigate(Screens.DASHBOARD));
+}
   render() {
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = ``;
