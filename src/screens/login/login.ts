@@ -2,7 +2,7 @@ import { dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 
-import styles from "./styles.css"
+import styles from "./styles.css";
 class Login extends HTMLElement {
   constructor() {
     super();
@@ -13,11 +13,11 @@ class Login extends HTMLElement {
     this.render();
   }
 
-
   handleLoginButton() {
     dispatch(navigate(Screens.DASHBOARD));
-}
+  }
   render() {
+
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = ``;
 
@@ -25,7 +25,9 @@ class Login extends HTMLElement {
       css.innerHTML = styles;
       this.shadowRoot?.appendChild(css);
 
-      this.shadowRoot!.innerHTML +=`
+      this.shadowRoot!.innerHTML += `
+      <main style="display: flex; flex-direction: row; .cutImg: width: 500px; ">
+
       <div class="form-container">
         <img class="cutImg" src="./img/loginCut.png">
         <div class="form-block">
@@ -53,4 +55,3 @@ class Login extends HTMLElement {
 
 customElements.define("app-login", Login);
 export default Login;
-
