@@ -1,4 +1,4 @@
-import { SignUp } from "../export";
+import { SignUp } from "../../components/export";
 import styles from "./styles.css"
 class Login extends HTMLElement {
   constructor() {
@@ -45,6 +45,6 @@ class Login extends HTMLElement {
   }
 }
 
-customElements.define("login-container", Login);
+customElements.define("app-login", Login);
 export default Login;
 

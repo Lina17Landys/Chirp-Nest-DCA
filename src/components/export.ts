@@ -1,5 +1,5 @@
 export {default as SignUp} from "./signup/signup";
-export {default as Login} from "./login/login";
+export {default as Login} from "../screens/login/login";
 //export {default as settingMenu} from "./settingMenu/settingMenu";
 //export {default as AccInfo} from "./smAccountInfo/accInfo";
 //export {default as Email} from "./accEmail/email";

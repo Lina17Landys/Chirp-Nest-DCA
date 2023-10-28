@@ -46,5 +46,5 @@ class dashboard extends HTMLElement {
   }
 }
 
-customElements.define("dashboard-container", dashboard);
+customElements.define("app-dashboard", dashboard);
 export default dashboard;
