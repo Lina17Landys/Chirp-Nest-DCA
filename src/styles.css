@@ -1,0 +1,33 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(73, 71, 142, 1), rgba(18, 34, 58, 1));
+    height: 100vh;
+  }
+  
+  * {
+    font-family: "Poppins", sans-serif;
+   overflow: hidden;
+  }
+
+.linea {
+  margin: 0px 20px;
+  width: 100px;
+  border-top: 1px solid white;
+  position: relative;
+  top: 15px;
+  float: left;
+}
+
+.leyenda {
+  font-weight: bold;
+  float: left;
+  color: white;
+  font-family: "Cutive", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}

@@ -1,6 +1,5 @@
-console.log("hola");
-
-class Login extends HTMLElement {
+import styles from "./styles.css"
+class Landing extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -8,47 +7,41 @@ class Login extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    this.setupEventListeners();
   }
 
   render() {
-    this.shadowRoot!.innerHTML = `
-      <link rel="stylesheet" href="../src/components/login/login.css">
-      <div class="form-container">
-        <img class="cutImg" src="../img/loginCut.png">
-        <div class="form-block">
-          <form>
-            <button id="signupButton">Sign Up</button>
-            <h1>User</h1>
-            <input type="email" placeholder="E-mail" />
-            <h1>Password</h1>
-            <input type="password" placeholder="Password" />
-            <button>Log In</button>
-          </form>
-          <div class="line">
-            <div class="linea"></div>
-            <div class="leyenda">Or start with</div>
-            <div class="linea"></div>
-          </div>
-          <img class="logoLine" src="../img/apple logo.png">
-          <img class="logoLine" src="../img/google logo.png">
-        </div>
-      </div>
-    `;
-  }
+    if (this.shadowRoot) {
+      this.shadowRoot.innerHTML = ``
 
-  setupEventListeners() {
-    const signupButton = this.shadowRoot!.querySelector("#signupButton");
-    if (signupButton) {
-      signupButton.addEventListener("click", () => {
-        console.log("si click");
-        
-        window.location.href = "../components/signup/signup.html"; 
-      });
+  const css = this.ownerDocument.createElement("style");
+  css.innerHTML = styles;
+  this.shadowRoot?.appendChild(css);
+
+      this.shadowRoot!.innerHTML += `
+      <link rel="stylesheet" href="./styles.css">
+      <img src="./img/logo.png">
+      <div class="info-container">
+      <h1>Welcome to Chirp Nest!</h1>
+      <p>Within this platform you can express yourself freely, share content and interact with other people.
+      Join now to be part of this community!</p>
+
+      <button id="loginButton">Log in</button>
+      <button id="appleButton">Log in with Apple</button>
+      <div class="line">
+      <div class="linea"></div>
+      <div class="leyenda">Or start with</div>
+      <div class="linea"></div>
+    </div>
+
+
+
+      </div>
+
+    `;
+    }
     }
   }
-  
-}
 
-customElements.define("login-container", Login);
-export default Login;
+
+customElements.define("app-container", Landing);
+export default Landing;
