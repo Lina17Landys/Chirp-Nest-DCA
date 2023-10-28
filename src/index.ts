@@ -18,7 +18,7 @@ class Landing extends HTMLElement {
       this.shadowRoot?.appendChild(css);
 
       this.shadowRoot!.innerHTML += `
-      <main style="display: flex; flex-direction: row;">
+      <main style="display: flex; flex-direction: row; ">
 
       <img src="./img/logo.png">
 
