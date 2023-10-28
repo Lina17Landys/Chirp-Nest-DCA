@@ -1,42 +1,6 @@
 body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(rgba(73, 71, 142, 1), rgba(18, 34, 58, 1));
-  height: 100vh;
-}
-
-* {
-  font-family: "Poppins", sans-serif;
-  overflow: hidden;
-}
-
-.linea {
-  margin: 0px 20px;
-  width: 100px;
-  border-top: 1px solid white;
-  position: relative;
-  top: 15px;
-  float: left;
-}
-
-.leyenda {
-  font-weight: bold;
-  float: left;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 5px;
-}
-
-img {
-    margin-right: 20px;
-}
-
-#loginButton, #appleButton, #signUpButton {
-    background-color: rgba(190, 108, 150, 1);
-    border: none;
-    border-radius: 10px;
-    width: 200px;
-    height: 90px;
-}
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgba(73, 71, 142, 1), rgba(18, 34, 58, 1));
+    height: 100vh;
+  }
