@@ -63,7 +63,7 @@ export default class BaseTweets extends HTMLElement {
     userDiv.classList.add("user-info");
     userDiv.innerHTML = `
         
-            <img src="./img/pexels-photo.jpg" alt="Profile Picture" class="profile-pic">
+            <img src="./img/pexels.jpg" alt="Profile Picture" class="profile-pic">
             <h2>@${tweetData.user}</h2>
         `;
 

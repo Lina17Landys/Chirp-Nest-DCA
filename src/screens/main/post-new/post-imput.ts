@@ -12,7 +12,7 @@ export default class PostInput extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.userData = {
             nombre: '@Triky',
-            fotoPerfil: './img/pick.jpg',
+            fotoPerfil: './img/profilePic.jpg',
         };
     }
 

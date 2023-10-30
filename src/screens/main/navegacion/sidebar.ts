@@ -24,7 +24,7 @@ export default class Sidebar extends HTMLElement {
                 
       <nav>
           <ul class="navbar">
-          <li><img class="logo" src="./imgs/logo.png"></li>
+          <li><img class="logo" src="./img/logo.png"></li>
 
           <li><img src="./img/homeIcon.png"><a href="#">Home</a></li>
           <li><img src="./img/searchIcon.png"><a href="#">Explore</a></li>
