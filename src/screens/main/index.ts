@@ -83,3 +83,4 @@ class CombinedComponent extends HTMLElement {
 }
 
 customElements.define("combined-component", CombinedComponent);
+export default CombinedComponent;
