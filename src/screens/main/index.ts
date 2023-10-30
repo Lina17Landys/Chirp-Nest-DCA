@@ -69,7 +69,7 @@ class CombinedComponent extends HTMLElement {
 
         <div class="tweet-blocks">
 
-          <BaseTweets-container></BaseTweets-container>
+          <base-tweets></base-tweets>
 
         </div>
 

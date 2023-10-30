@@ -17,7 +17,13 @@ class Login extends HTMLElement {
     button?.addEventListener(('click'), () =>{
       dispatch(navigate(Screens.SIGNUP))
     })
+
+
   }
+
+
+
+  
 
   render() {
 
@@ -40,7 +46,7 @@ class Login extends HTMLElement {
             <input type="email" placeholder="E-mail" />
             <h1>Password</h1>
             <input type="password" placeholder="Password" />
-            <button>Log In</button>
+            <button id="logInButton">Log In</button>
           </form>
           <div class="line">
             <div class="linea"></div>

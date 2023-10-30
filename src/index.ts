@@ -1,6 +1,7 @@
 import "./screens/dashboard/index"
 import "./screens/login/login"
 import "./screens/signup/signup"
+import "./screens/main/index"
 import "./components/export"
 import { addObserver } from "./store/index";
 import { appState } from "./store/index";
@@ -35,6 +36,10 @@ case Screens.DASHBOARD:
                 this.shadowRoot?.appendChild(signup);
                 break;
     
+                case Screens.MAIN:
+                    const main = this.ownerDocument.createElement("combined-component");
+                    this.shadowRoot?.appendChild(main);
+                    break;
     
         default:
             break;

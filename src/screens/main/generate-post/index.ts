@@ -91,4 +91,4 @@ export default class BaseTweets extends HTMLElement {
   }
 }
 
-customElements.define("BaseTweets-container", BaseTweets);
+customElements.define("base-tweets", BaseTweets);
