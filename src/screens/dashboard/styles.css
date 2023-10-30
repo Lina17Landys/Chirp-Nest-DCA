@@ -29,14 +29,26 @@ body {
   margin-top: 5px;
 }
 
-img {
-    margin-right: 20px;
+h1, p {
+  color: white;
+}
+
+img, .logoImg {
+  margin-top: 50px;
+    margin-left: 20px;
+}
+
+.info-container {
+  width: 450px;
+margin-top: 50px;
+margin-left: 50px;
 }
 
 #loginButton, #appleButton, #signUpButton {
+  color: white;
     background-color: rgba(190, 108, 150, 1);
     border: none;
     border-radius: 10px;
     width: 200px;
-    height: 90px;
+    height: 40px;
 }
