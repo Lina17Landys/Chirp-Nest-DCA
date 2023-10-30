@@ -1,13 +1,21 @@
 import styles from "./styles.css";
+import { addObserver, appState, dispatch } from "../../../store/index";
+import { navigate } from "../../../store/actions";
+import { Screens } from "../../../types/navigation";
 
 export default class Sidebar extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this);
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     this.render();
+    const button = this.shadowRoot?.querySelector('#logo');
+    button?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.DASHBOARD))
+    })
   }
 
   render() {
@@ -24,7 +32,7 @@ export default class Sidebar extends HTMLElement {
                 
       <nav>
           <ul class="navbar">
-          <li><img class="logo" src="./img/logo.png"></li>
+          <li><img class="logo" id="logo" src="./img/logo.png"></li>
 
           <li><img src="./img/homeIcon.png"><a href="#">Home</a></li>
           <li><img src="./img/searchIcon.png"><a href="#">Explore</a></li>
