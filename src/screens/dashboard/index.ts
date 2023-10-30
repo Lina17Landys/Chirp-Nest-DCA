@@ -11,6 +11,7 @@ class dashboard extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this);
   }
 
   async connectedCallback() {

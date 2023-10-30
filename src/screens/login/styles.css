@@ -100,3 +100,11 @@ div form button {
 .cutImg {
   width: 500px;
 }
+
+.logoSmall {
+  position: relative;
+  z-index: 2;
+  left: 500px;
+  width: 50px;
+  height: 80px;
+}

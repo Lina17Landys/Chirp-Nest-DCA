@@ -1,4 +1,4 @@
-import "./screens/dashboard"
+import "./screens/dashboard/index"
 import "./screens/login/login"
 import "./components/export"
 import { addObserver } from "./store/index";

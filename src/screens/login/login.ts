@@ -48,6 +48,7 @@ class Login extends HTMLElement {
           <img class="logoLine" src="./img/google logo.png">
         </div>
       </div>
+
     `;
     }
   }
