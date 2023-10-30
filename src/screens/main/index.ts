@@ -15,7 +15,7 @@ class CombinedComponent extends HTMLElement {
 
 
     const postInput = this.shadowRoot?.querySelector("post-input");
-    const appContainer = this.shadowRoot?.querySelector("app-container");
+    const myTweetContainer = this.shadowRoot?.querySelector("app-container");
 
 
     postInput?.addEventListener("postPublished", (event) => {
@@ -33,9 +33,9 @@ class CombinedComponent extends HTMLElement {
           <p>${postText}</p>
         `;
     
-        const appContainer = this.shadowRoot?.querySelector("app-container");
+        const myTweetContainer = this.shadowRoot?.querySelector("app-container");
     
-        appContainer?.shadowRoot?.querySelector("#tweet-column")?.prepend(newPost);
+        myTweetContainer?.shadowRoot?.querySelector("#tweet-column")?.prepend(newPost);
       }
     });
 
