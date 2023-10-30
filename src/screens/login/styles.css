@@ -3,11 +3,14 @@ body {
   padding: 0;
   background: linear-gradient(rgba(73, 71, 142, 1), rgba(18, 34, 58, 1));
   height: 100vh;
+  overflow-y: hidden;
 }
 
 * {
   font-family: "Poppins", sans-serif;
   overflow: hidden;
+  overflow-y: hidden;
+
 }
 
 input {
