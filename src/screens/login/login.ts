@@ -32,7 +32,7 @@ class Login extends HTMLElement {
         <img class="cutImg" src="./img/loginCut.png">
         <div class="form-block">
           <form>
-          <a href="../src/components/signup/signup.ts"><button>Sign Up</button></a>
+          <button>Sign Up</button>
           <h1>User</h1>
             <input type="email" placeholder="E-mail" />
             <h1>Password</h1>
