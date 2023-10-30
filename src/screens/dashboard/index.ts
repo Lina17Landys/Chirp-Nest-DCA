@@ -19,6 +19,11 @@ class dashboard extends HTMLElement {
     button?.addEventListener("click", () => {
       dispatch(navigate(Screens.LOGIN));
     });
+
+    const buttonSign = this.shadowRoot?.querySelector("#signUpButton");
+    buttonSign?.addEventListener("click", () => {
+      dispatch(navigate(Screens.SIGNUP));
+    });
   }
 
   render() {

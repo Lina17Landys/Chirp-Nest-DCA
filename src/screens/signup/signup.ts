@@ -15,6 +15,11 @@ class SignUp extends HTMLElement {
     button?.addEventListener(('click'), () =>{
       dispatch(navigate(Screens.LOGIN))
     })
+    const buttonCreateAcc = this.shadowRoot?.querySelector('#createBtn');
+    buttonCreateAcc?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.MAIN))
+    })
+    
   }
 
   render() {
@@ -39,7 +44,7 @@ class SignUp extends HTMLElement {
             <input type="email" placeholder="Password" />
             <h1>Repeat password</h1>
             <input type="password" placeholder="Password" />
-            <button class="btn">Create account</button>
+            <button class="btn" id="createBtn">Create account</button>
           </form>
         </div>
       </div>
