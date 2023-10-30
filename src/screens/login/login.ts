@@ -1,4 +1,4 @@
-import { dispatch } from "../../store/index";
+import { addObserver, appState, dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 
@@ -7,15 +7,18 @@ class Login extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this);
   }
 
-  connectedCallback() {
+ 
+  async connectedCallback() {
     this.render();
+    const button = this.shadowRoot?.querySelector('#signUpButton');
+    button?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.SIGNUP))
+    })
   }
 
-  handleLoginButton() {
-    dispatch(navigate(Screens.DASHBOARD));
-  }
   render() {
 
     if (this.shadowRoot) {
@@ -32,7 +35,7 @@ class Login extends HTMLElement {
         <img class="cutImg" src="./img/loginCut.png">
         <div class="form-block">
           <form>
-          <button>Sign Up</button>
+          <button id="signUpButton">Sign Up</button>
           <h1>User</h1>
             <input type="email" placeholder="E-mail" />
             <h1>Password</h1>

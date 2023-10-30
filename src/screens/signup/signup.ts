@@ -1,4 +1,8 @@
 import styles from "./styles.css"
+import { addObserver, appState, dispatch } from "../../store/index";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+
 class SignUp extends HTMLElement {
   constructor() {
     super();
@@ -7,6 +11,7 @@ class SignUp extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    addObserver(this)
   }
 
   render() {
@@ -18,9 +23,8 @@ class SignUp extends HTMLElement {
       this.shadowRoot?.appendChild(css);
 
       this.shadowRoot!.innerHTML +=`
-      <link rel="stylesheet" href="./signup.css">
       <div class="form-container">
-        <img class="cutImg" src="signUpCut.png">
+        <img class="cutImg" src="./img/signUpCut.png">
         <div class="form-block">
           <form>
             <button id="loginButton">Log in</button>
