@@ -3,7 +3,6 @@ import { addObserver, appState, dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 
-
 // No se porque me da un error al correr build por el nombre "Field 'browser' doesn't contain a valid alias configuration
 // /Users/lina_landys/Desktop/trabajos/DCA/chirp nest/src/screens/dashboard/index.tsx doesn't exist" pov: si existe pero no??
 
@@ -16,10 +15,10 @@ class dashboard extends HTMLElement {
 
   async connectedCallback() {
     this.render();
-    const button = this.shadowRoot?.querySelector('#loginButton');
-    button?.addEventListener(('click'), () =>{
-      dispatch(navigate(Screens.LOGIN))
-    })
+    const button = this.shadowRoot?.querySelector("#loginButton");
+    button?.addEventListener("click", () => {
+      dispatch(navigate(Screens.LOGIN));
+    });
   }
 
   render() {
@@ -32,7 +31,6 @@ class dashboard extends HTMLElement {
 
       this.shadowRoot!.innerHTML += `
       <main style="display: flex; flex-direction: row; ">
-
       <img clas="logoImg" src="./img/logo.png">
 
       <div class="info-container">
@@ -52,7 +50,6 @@ class dashboard extends HTMLElement {
 
 
       </div>
-
     `;
     }
   }

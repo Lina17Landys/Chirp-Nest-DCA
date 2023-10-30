@@ -34,14 +34,14 @@ h1, p {
 }
 
 img, .logoImg {
-  margin-top: 50px;
-    margin-left: 20px;
+  margin-top: 80px;
+    margin-left: 100px;
 }
 
 .info-container {
   width: 450px;
-margin-top: 50px;
-margin-left: 50px;
+margin-top: 100px;
+margin-left: 150px;
 }
 
 #loginButton, #appleButton, #signUpButton {
@@ -49,6 +49,29 @@ margin-left: 50px;
     background-color: rgba(190, 108, 150, 1);
     border: none;
     border-radius: 10px;
-    width: 200px;
+    width: 400px;
     height: 40px;
+    display: block;
+    margin-bottom: 10px;
+    transition: background-color 0.5s;
+}
+
+#loginButton:hover {
+  background-color: rgb(139, 56, 88); 
+}
+
+#appleButton:hover {
+  background-color: rgb(139, 56, 88); 
+}
+
+#signUpButton:hover {
+  background-color: rgb(139, 56, 88); 
+}
+
+#signUpButton {
+  margin-top: 10px;
+}
+
+.line {
+  margin-left: 40px;
 }
