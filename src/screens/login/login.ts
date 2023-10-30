@@ -17,7 +17,10 @@ class Login extends HTMLElement {
     button?.addEventListener(('click'), () =>{
       dispatch(navigate(Screens.SIGNUP))
     })
-
+    const buttonLogin = this.shadowRoot?.querySelector('#logInButton');
+    buttonLogin?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.MAIN))
+    })
 
   }
 
