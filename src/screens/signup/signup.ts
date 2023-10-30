@@ -9,9 +9,12 @@ class SignUp extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     this.render();
-    addObserver(this)
+    const button = this.shadowRoot?.querySelector('#loginButton');
+    button?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.LOGIN))
+    })
   }
 
   render() {
