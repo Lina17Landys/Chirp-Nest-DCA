@@ -39,7 +39,7 @@ export default class Sidebar extends HTMLElement {
           <li><img src="./img/bellIcon.png"><a href="#">Notifications</a></li>
           <li><img src="./img/profileIcon.png"><a href="#">Profile</a></li>
               <div class="user">
-                  <img src="./img/pick.jpg" alt="Profile Picture">
+                  <img src="./img/profilePic.jpg" alt="Profile Picture">
                   <button class="tweet-button">Tweet</button>
               </div>
           </ul>

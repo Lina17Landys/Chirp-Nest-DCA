@@ -63,7 +63,7 @@ export default class GeneratePost extends HTMLElement {
     userDiv.classList.add("user-info");
     userDiv.innerHTML = `
         
-            <img src="./imgs/pexels-photo.jpg" alt="Profile Picture" class="profile-pic">
+            <img src="./img/pexels.jpg" alt="Profile Picture" class="profile-pic">
             <h2>@${tweetData.user}</h2>
         `;
 
