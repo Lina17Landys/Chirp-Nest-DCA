@@ -4,7 +4,7 @@ interface TweetData {
   content: string;
 }
 
-export default class BaseTweets extends HTMLElement {
+export default class GeneratePost extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -63,7 +63,7 @@ export default class BaseTweets extends HTMLElement {
     userDiv.classList.add("user-info");
     userDiv.innerHTML = `
         
-            <img src="./img/pexels.jpg" alt="Profile Picture" class="profile-pic">
+            <img src="./imgs/pexels-photo.jpg" alt="Profile Picture" class="profile-pic">
             <h2>@${tweetData.user}</h2>
         `;
 
@@ -91,5 +91,4 @@ export default class BaseTweets extends HTMLElement {
   }
 }
 
-customElements.define("base-tweets", BaseTweets);
-
+customElements.define("post-generate", GeneratePost);

@@ -1,5 +1,5 @@
-import "./navegacion/sidebar";
-import "./generate-post/index"; 
+import "./generate-post/index";
+import "./navegacion/sidebar"; 
 import "./post-new/post-imput";
 import styles from "./styles.css";
 
@@ -15,7 +15,7 @@ class CombinedComponent extends HTMLElement {
 
 
     const postInput = this.shadowRoot?.querySelector("post-input");
-    const myTweetContainer = this.shadowRoot?.querySelector("app-container");
+    const generatePost = this.shadowRoot?.querySelector("post-generate");
 
 
     postInput?.addEventListener("postPublished", (event) => {
@@ -33,9 +33,9 @@ class CombinedComponent extends HTMLElement {
           <p>${postText}</p>
         `;
     
-        const myTweetContainer = this.shadowRoot?.querySelector("app-container");
+        const generatePost = this.shadowRoot?.querySelector("post-generate");
     
-        myTweetContainer?.shadowRoot?.querySelector("#tweet-column")?.prepend(newPost);
+        generatePost?.shadowRoot?.querySelector("#tweet-column")?.prepend(newPost);
       }
     });
 
@@ -69,7 +69,7 @@ class CombinedComponent extends HTMLElement {
 
         <div class="tweet-blocks">
 
-          <base-tweets></base-tweets>
+          <post-generate></post-generate>
 
         </div>
 
