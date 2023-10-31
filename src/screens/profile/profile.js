@@ -11,6 +11,7 @@ class Profile extends HTMLElement {
       render(){
         this.shadowRoot.innerHTML = `
         <link rel="stylesheet" href="./styles.css">
+        <div class="container">
 
         <div class="sidebar">
                 
@@ -30,24 +31,30 @@ class Profile extends HTMLElement {
         </nav>
     </div>
 
-<section class="user">
-<img src="../../../img/banner.jpeg" class="banner-big">
+    <section class="user-profile">
+    <img src="../../../img/banner.png" class="banner-big">
+    
+    <img src="../../../img/profilePic.jpg" class="icon-big">
+    
+    <div class="info">
+  <div class="info-top">
+    <h1>@Tricky</h1>
+    <p>Tricky</p>
+    <button>Edit Profile</button>
+  </div>
+  <div class="info-middle">
+    <p><img src="../../../img/calendarIcon.png">Joined on Oct 10</p>
+    <div class="i-bottom">
+    <p>Followers: 10</p>
+    <p>Following: 3</p>
+    </div>
+  </div>
+  <h2>Posts</h2>
+</div>
+    
+    </section>
 
-<img src="../../../img/profilePic.jpg" class="icon-big">
-<h1>Tricky</h1>
-<p>@Tricky</p>
-<button>Edit Profile</button>
-
-<p><img src="../../../img/calendarIcon.png">Joined on Oct 10</p>
-<p>Followers: 10</p>
-<p>Following: 3</p>
-
-<h2>Posts</h2>
-
-
-</section>
-
-
+</div>
 
 
         `;

@@ -34,10 +34,10 @@ export default class Sidebar extends HTMLElement {
           <ul class="navbar">
           <li><img class="logo" id="logo" src="./img/logo.png"></li>
 
-          <li><img src="./img/homeIcon.png"><a href="#">Home</a></li>
-          <li><img src="./img/searchIcon.png"><a href="#">Explore</a></li>
-          <li><img src="./img/bellIcon.png"><a href="#">Notifications</a></li>
-          <li><img src="./img/profileIcon.png"><a href="#">Profile</a></li>
+          <li><img src="./img/homeIcon.png" id="home"><a href="#">Home</a></li>
+          <li><img src="./img/searchIcon.png" id="explore"><a href="#">Explore</a></li>
+          <li><img src="./img/bellIcon.png" id="notification"><ahref="#">Notifications</ahref=></li>
+          <li><img src="./img/profileIcon.png" id="profile"><a href="#">Profile</a></li>
               <div class="user">
                   <img src="./img/profilePic.jpg" alt="Profile Picture">
                   <button class="tweet-button">Tweet</button>
