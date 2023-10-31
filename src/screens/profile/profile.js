@@ -37,10 +37,12 @@ class Profile extends HTMLElement {
     <img src="../../../img/profilePic.jpg" class="icon-big">
     
     <div class="info">
-  <div class="info-top">
-    <h1>@Tricky</h1>
-    <p>Tricky</p>
-    <button>Edit Profile</button>
+    <div class="info-top">
+    <div class="left-info">
+      <h1>@Tricky</h1>
+      <p>Tricky</p>
+    </div>
+    <button id="edit">Edit Profile</button>
   </div>
   <div class="info-middle">
     <p><img src="../../../img/calendarIcon.png">Joined on Oct 10</p>
