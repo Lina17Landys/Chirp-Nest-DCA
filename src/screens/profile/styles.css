@@ -205,8 +205,8 @@ h2 {
   align-items: flex-start;
 }
 
-h1,
-p {
+h1,p {
+  color: white;
   margin-bottom: 5px;
   margin-left: 5px;
 }
@@ -217,6 +217,7 @@ p {
   color: #fff;
   border: none;
   height: 30px;
+  width: 120px;
   border-radius: 10px;
 }
 
