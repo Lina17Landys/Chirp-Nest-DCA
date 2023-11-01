@@ -78,7 +78,6 @@ export default class GeneratePost extends HTMLElement {
 
       tweetColumn!.insertBefore(tweetDiv, tweetColumn!.firstChild);
 
-      // Guardar el nuevo tweet en el array y en el localStorage
       let tweets: TweetData[] = JSON.parse(localStorage.getItem('tweets') || '[]');
       tweets.unshift(newTweetData);
       localStorage.setItem('tweets', JSON.stringify(tweets));
