@@ -1,15 +1,34 @@
+import styles from "./styles.css";
+import { addObserver, appState, dispatch } from "../../store/index";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+
+
 class Profile extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode:"open"})
+        addObserver(this);
+
     }
 
-    connectedCallback() {
-        this.render();
-      }
-
+    async connectedCallback() {
+      this.render();
+      const button = this.shadowRoot?.querySelector('#home');
+      button?.addEventListener(('click'), () =>{
+        dispatch(navigate(Screens.MAIN))
+      })
+  
+    }
       render(){
-        this.shadowRoot.innerHTML = `
+        if (this.shadowRoot) {
+          this.shadowRoot.innerHTML = ``;
+    
+          const css = this.ownerDocument.createElement("style");
+          css.innerHTML = styles;
+          this.shadowRoot?.appendChild(css);
+    
+          this.shadowRoot!.innerHTML += `
         <link rel="stylesheet" href="./styles.css">
         <div class="container">
 
@@ -19,7 +38,7 @@ class Profile extends HTMLElement {
             <ul class="navbar">
             <li><img class="logo" src="../../../img/logo.png"></li>
   
-            <li>    <img src="../../../img/homeIcon.png"<a href="#">Home</a></li>
+            <li><img src="../../../img/homeIcon.png" id="home"><a href="#">Home</a></li>
             <li><img src="../../../img/searchIcon.png"><a href="#">Explore</a></li>
             <li><img src="../../../img/bellIcon.png"><a href="#">Notifications</a></li>
             <li><img src="../../../img/profileIcon.png"><a href="#">Profile</a></li>
@@ -60,6 +79,7 @@ class Profile extends HTMLElement {
 
 
         `;
+        }
       }
 }
 

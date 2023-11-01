@@ -3,6 +3,7 @@ import "./screens/login/login"
 import "./screens/signup/signup"
 import "./screens/main/index"
 import "./components/export"
+import "./screens/profile/profile"
 import { addObserver } from "./store/index";
 import { appState } from "./store/index";
 import { Screens } from "./types/navigation";
@@ -40,6 +41,11 @@ case Screens.DASHBOARD:
                     const main = this.ownerDocument.createElement("combined-component");
                     this.shadowRoot?.appendChild(main);
                     break;
+
+                    case Screens.PROFILE:
+                        const profile = this.ownerDocument.createElement("user-profile");
+                        this.shadowRoot?.appendChild(profile);
+                        break;
     
         default:
             break;

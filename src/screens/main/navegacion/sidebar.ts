@@ -16,6 +16,12 @@ export default class Sidebar extends HTMLElement {
     button?.addEventListener(('click'), () =>{
       dispatch(navigate(Screens.DASHBOARD))
     })
+
+    const buttonProfile = this.shadowRoot?.querySelector('#profile');
+    buttonProfile?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.PROFILE))
+    })
+
   }
 
   render() {
@@ -36,7 +42,7 @@ export default class Sidebar extends HTMLElement {
 
           <li><img src="./img/homeIcon.png" id="home"><a href="#">Home</a></li>
           <li><img src="./img/searchIcon.png" id="explore"><a href="#">Explore</a></li>
-          <li><img src="./img/bellIcon.png" id="notification"><ahref="#">Notifications</ahref=></li>
+          <li><img src="./img/bellIcon.png" id="notification"><a href="#">Notifications</a></li>
           <li><img src="./img/profileIcon.png" id="profile"><a href="#">Profile</a></li>
               <div class="user">
                   <img src="./img/profilePic.jpg" alt="Profile Picture">
