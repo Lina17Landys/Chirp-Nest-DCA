@@ -1,5 +1,4 @@
 import styles from "./styles.css";
-
 interface TweetData {
   user: string;
   content: string;
@@ -27,16 +26,26 @@ export default class GeneratePost extends HTMLElement {
       this.shadowRoot?.appendChild(css);
 
       this.shadowRoot!.innerHTML += `
-        <div class="tweet">
-        </div>
-        <div id="tweet-column"></div>
-      `;
+    <div class="tweet">
+    </div>
+            <div id="tweet-column"></div>
+        `;
     }
   }
 
   loadTweets() {
     const tweetColumn = this.shadowRoot?.querySelector("#tweet-column");
-    let tweets: TweetData[] = JSON.parse(localStorage.getItem('tweets') || '[]');
+
+    const tweets = [
+      {
+        user: "omgNJ12",
+        content: "I like music and dancing.",
+      },
+      {
+        user: "banBaN",
+        content: "I like programming. #coding #webdev",
+      },
+    ];
 
     tweets.forEach((tweetData) => {
       const tweetDiv = this.createTweetElement(tweetData);
@@ -53,9 +62,10 @@ export default class GeneratePost extends HTMLElement {
     const userDiv = document.createElement("div");
     userDiv.classList.add("user-info");
     userDiv.innerHTML = `
-      <img src="./img/pexels.jpg" alt="Profile Picture" class="profile-pic">
-      <h2>@${tweetData.user}</h2>
-    `;
+        
+            <img src="./img/pexels.jpg" alt="Profile Picture" class="profile-pic">
+            <h2>@${tweetData.user}</h2>
+        `;
 
     const contentParagraph = document.createElement("p");
     contentParagraph.textContent = tweetData.content;
@@ -70,19 +80,14 @@ export default class GeneratePost extends HTMLElement {
     setInterval(() => {
       const newTweetData = {
         user: "pepitox777",
-        content: "This is a tweet in real-time. #realtime",
+        content: "This is a tweet in real time. #realtime",
       };
 
       const tweetColumn = this.shadowRoot?.querySelector("#tweet-column");
       const tweetDiv = this.createTweetElement(newTweetData);
 
       tweetColumn!.insertBefore(tweetDiv, tweetColumn!.firstChild);
-
-      let tweets: TweetData[] = JSON.parse(localStorage.getItem('tweets') || '[]');
-      tweets.unshift(newTweetData);
-      localStorage.setItem('tweets', JSON.stringify(tweets));
     }, 10000);
   }
 }
-
 customElements.define("post-generate", GeneratePost);
