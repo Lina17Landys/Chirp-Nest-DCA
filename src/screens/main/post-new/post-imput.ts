@@ -18,23 +18,27 @@ export default class PostInput extends HTMLElement {
 
     connectedCallback() {
         this.render();
-
-        const publishButton = this.shadowRoot!.querySelector('#publishButton') as HTMLButtonElement; 
-        const postTextInput = this.shadowRoot!.querySelector('#postText') as HTMLInputElement; 
-
+    
+        const publishButton = this.shadowRoot!.querySelector('#publishButton') as HTMLButtonElement;
+        const postTextInput = this.shadowRoot!.querySelector('#postText') as HTMLInputElement;
+    
         publishButton.addEventListener('click', () => {
             const postText = postTextInput.value;
-            const event = new CustomEvent('postPublished', {
-                detail: {
-                    postText: postText,
-                    userData: this.userData,
-                },
-            });
-            this.dispatchEvent(event);
-
-            postTextInput.value = ''; 
+    
+            if (postText.trim() !== '') { 
+                const event = new CustomEvent('postPublished', {
+                    detail: {
+                        postText: postText,
+                        userData: this.userData,
+                    },
+                });
+                this.dispatchEvent(event);
+    
+                postTextInput.value = '';
+            }
         });
     }
+    
 
     render() {
         if (this.shadowRoot) {
@@ -47,7 +51,7 @@ export default class PostInput extends HTMLElement {
             this.shadowRoot!.innerHTML += `
             <div class="searchBar">
         <div class="box">
-            <input id="postText" type="text" placeholder="Write yout thoughts...">
+            <input id="postText" type="text" placeholder="Write yout thoughts..." required>
           </div>
             <button class="post-button" id="publishButton">Post</button>
         `;
