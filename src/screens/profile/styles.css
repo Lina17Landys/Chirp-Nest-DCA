@@ -189,7 +189,7 @@ h2 {
 
 .info {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .info-top {
@@ -219,20 +219,30 @@ h1,p {
   height: 30px;
   width: 120px;
   border-radius: 10px;
+  transition: background-color 0.3s ease;
+
+}
+
+#edit:hover {
+  background-color: #8b4167;
 }
 
 .info-middle {
+  border: 1.5px solid white; 
+  border-radius: 10px;  
   display: flex;
   flex-direction: column;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 350px;
 }
 
 .i-bottom {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 10px;
 }
 
 .i-bottom p {
