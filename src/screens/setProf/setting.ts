@@ -7,13 +7,18 @@ class SetProf extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    addObserver(this);
   }
 
   connectedCallback() {
+    this.render();
     const buttonBack = this.shadowRoot?.querySelector("#back");
     buttonBack?.addEventListener("click", () => {
       dispatch(navigate(Screens.PROFILE));
+    });
+
+    const buttonOut = this.shadowRoot?.querySelector("#logOut");
+    buttonOut?.addEventListener("click", () => {
+      dispatch(navigate(Screens.DASHBOARD));
     });
   }
 
@@ -40,8 +45,8 @@ class SetProf extends HTMLElement {
           <label for="location">Location:</label>
           <input type="text" id="location">
           
-          <button type="button" id="privacy-settings">Privacy Settings</button>
-          <button type="button" id="log-out">Log Out</button>
+          <button type="button" id="privacy">Privacy Settings</button>
+          <button type="button" id="logOut">Log Out</button>
        </div>
       `;
     }

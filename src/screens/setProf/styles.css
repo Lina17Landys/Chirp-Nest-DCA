@@ -19,11 +19,11 @@ body {
 label,
 input,
 textarea {
-  width: 160px;
+  width: 300px;
   color: white;
 }
 
 button {
   display: inline-block;
-  width: 160px;
+  width: 300px;
 }
