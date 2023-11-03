@@ -57,100 +57,10 @@ body {
     color: white;
   }
   
-  .sidebar {
-    position: sticky;
-    top: 0;
-    padding: 0 20px;
-  }
-  
+ 
   .menu-right {
     flex: 1;
     margin-left: 10px;
-  }
-  .sidebar nav {
-    color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    width: 250px;
-  }
-  
-  .sidebar ul {
-    color: white;
-    list-style: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    color: white;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar ul li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    padding: 5px 0;
-  }
-  
-  .user {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .user img {
-    max-width: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .tweet-button {
-    background-color: #be6c96;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .tweet-button:hover {
-    background-color: #9b4d75;
-  }
-  
-  .icon {
-    margin-right: 5px;
-    font-size: 18px;
-  }
-  
-  .logo {
-    width: 60px;
-    height: 83px;
-    margin-bottom: 20px;
-  }
-  
-  .navbar {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .navbar li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .navbar li img {
-    margin-right: 10px;
-  }
-  
-  .navbar li a {
-    text-decoration: none;
-    color: black;
   }
   
   .bold li {
@@ -212,4 +122,9 @@ body {
     width: 170px;
     height: 40px;
     margin-left: 180px;
+    transition: background-color 0.3s ease;
+  }
+
+  .save-btn:hover {
+    background-color: #8b4167;
   }

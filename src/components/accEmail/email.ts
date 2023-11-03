@@ -16,6 +16,11 @@ class Email extends HTMLElement {
     back?.addEventListener(('click'), () =>{
       dispatch(navigate(Screens.MENUSET))
     })
+
+    const save = this.shadowRoot?.querySelector('#save');
+      save?.addEventListener(('click'), () =>{
+        dispatch(navigate(Screens.MENUSET))
+      })
   }
 
   render() {
@@ -58,7 +63,7 @@ class Email extends HTMLElement {
 
 
 </ul>
-<button class="save-btn">Save changes</button>
+<button class="save-btn" id="save">Save changes</button>
     </div>
     </div>
       `;

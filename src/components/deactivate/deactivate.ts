@@ -16,6 +16,13 @@ class Deactivate extends HTMLElement {
       back?.addEventListener(('click'), () =>{
         dispatch(navigate(Screens.MENUSET))
       })
+
+
+      const save = this.shadowRoot?.querySelector('#save');
+      save?.addEventListener(('click'), () =>{
+        dispatch(navigate(Screens.DASHBOARD))
+      })
+
     }
     render() {
       if (this.shadowRoot) {
@@ -53,7 +60,7 @@ If you just want to change your @username, you don’t need to deactivate your a
 To use your current @username or email address with a different account, change them before you deactivate this account.
 </p>
 </div>
-<button class="save-btn">Deactivate</button>
+<button class="save-btn" id="save">Deactivate</button>
     </div>
     </div>
       `;

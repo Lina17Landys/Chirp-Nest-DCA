@@ -184,6 +184,11 @@ body {
     height: 40px;
     margin-left: 180px;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .save-btn:hover {
+    background-color: #8b4167;
   }
 
   .text-content {
