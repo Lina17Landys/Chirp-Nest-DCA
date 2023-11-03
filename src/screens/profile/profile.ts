@@ -77,6 +77,15 @@ class Profile extends HTMLElement {
   </div>
   <h2>Posts</h2>
 </div>
+
+<div class="tweet">
+  <img src="./img/profilePic.jpg" class="profile-pic">
+  <div class="tweet-content">
+    <h2>@Tricky</h2>
+    <p>Welcome to my page.</p>
+  </div>
+</div>
+
     
     </section>
 
