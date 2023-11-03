@@ -3,16 +3,18 @@ import { addObserver, appState, dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 
-
-class setProf extends HTMLElement {
+class SetProf extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
     addObserver(this);
   }
 
-   connectedCallback() {
-    this.render();
+  connectedCallback() {
+    const buttonBack = this.shadowRoot?.querySelector("#back");
+    buttonBack?.addEventListener("click", () => {
+      dispatch(navigate(Screens.PROFILE));
+    });
   }
 
   render() {
@@ -24,11 +26,27 @@ class setProf extends HTMLElement {
       this.shadowRoot?.appendChild(css);
 
       this.shadowRoot!.innerHTML += `
-     hola
-    `;
+        <img src="./img/ArrowIcon.png" id="back">
+        <form>
+          <label for="username">Username:</label>
+          <input type="text" id="username" required>
+          
+          <label for="name">Name:</label>
+          <input type="text" id="name" required>
+          
+          <label for "biography">Biography:</label>
+          <textarea id="biography"></textarea>
+          
+          <label for="location">Location:</label>
+          <input type="text" id="location">
+          
+          <button type="button" id="privacy-settings">Privacy Settings</button>
+          <button type="button" id="log-out">Log Out</button>
+        </form>
+      `;
     }
   }
 }
 
-customElements.define("set-prof", setProf);
-export default setProf;
+customElements.define("set-prof", SetProf);
+export default SetProf;

@@ -18,6 +18,11 @@ class Profile extends HTMLElement {
       button?.addEventListener(('click'), () =>{
         dispatch(navigate(Screens.MAIN))
       })
+
+      const buttonProfSet = this.shadowRoot?.querySelector('#edit');
+      buttonProfSet?.addEventListener(('click'), () =>{
+        dispatch(navigate(Screens.SETTING))
+      })
   
     }
       render(){

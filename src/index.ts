@@ -3,6 +3,7 @@ import "./screens/login/login";
 import "./screens/signup/signup";
 import "./screens/main/index";
 import "./components/export";
+import "./screens/setProf/setting";
 import "./screens/profile/profile";
 import { addObserver } from "./store/index";
 import { appState } from "./store/index";
@@ -26,6 +27,7 @@ class AppContainer extends HTMLElement {
         const dashboard = this.ownerDocument.createElement("app-dashboard");
         this.shadowRoot?.appendChild(dashboard);
         break;
+
       case Screens.LOGIN:
         const login = this.ownerDocument.createElement("app-login");
         this.shadowRoot?.appendChild(login);
@@ -45,6 +47,11 @@ class AppContainer extends HTMLElement {
         const profile = this.ownerDocument.createElement("user-profile");
         this.shadowRoot?.appendChild(profile);
         break;
+
+        case Screens.SETTING:
+            const settingProf = this.ownerDocument.createElement("set-prof");
+            this.shadowRoot?.appendChild(settingProf);
+            break;
 
       default:
         break;
