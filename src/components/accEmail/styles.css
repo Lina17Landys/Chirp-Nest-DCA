@@ -128,3 +128,14 @@ body {
   .save-btn:hover {
     background-color: #8b4167;
   }
+
+  @media all and (max-width: 730px) {
+   
+    input {
+      width: 300px;
+    }
+
+    #save {
+      margin-left: 80px;
+    }
+    }

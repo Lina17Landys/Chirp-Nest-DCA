@@ -249,3 +249,13 @@ h1,p {
   margin: 0;
   margin-right: 10px;
 }
+
+@media all and (max-width: 730px) {
+#edit {
+  margin-right: 30px;
+}
+ 
+.info-middle {
+  width: 320px;
+}
+}
