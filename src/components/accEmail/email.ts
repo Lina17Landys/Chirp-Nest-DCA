@@ -1,4 +1,8 @@
-import styles from "./styles.css";
+import styles from "./styles.css"
+import { addObserver, appState, dispatch } from "../../store/index";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+import Sidebar from "../../screens/main/navegacion/sidebar";
 
 class Email extends HTMLElement {
   constructor() {
@@ -6,8 +10,12 @@ class Email extends HTMLElement {
     this.attachShadow({ mode: "open" });
   }
 
-  connectedCallback() {
+  async connectedCallback() {
     this.render();
+    const back = this.shadowRoot?.querySelector('#back');
+    back?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.MENUSET))
+    })
   }
 
   render() {
@@ -20,28 +28,13 @@ class Email extends HTMLElement {
 
       this.shadowRoot!.innerHTML += `
         <div class="container">
-        <div class="sidebar">
-                
-        <nav>
-            <ul class="navbar">
-            <li><img class="logo" src="../../../img/logo.png"></li>
+        <sidebar-component></sidebar-component>
 
-            <li><img src="../../../img/homeIcon.png"><a href="#">Home</a></li>
-            <li><img src="../../../img/searchIcon.png"><a href="#">Explore</a></li>
-            <li><img src="../../../img/bellIcon.png"><a href="#">Notifications</a></li>
-            <li><img src="../../../img/profileIcon.png"><a href="#">Profile</a></li>
-                <div class="user">
-                    <img src="../../../img/profilePic.jpg" alt="Profile Picture">
-                    <button class="tweet-button">Tweet</button>
-                </div>
-            </ul>
-        </nav>
-    </div>
 
     <div class="menu-right">
     <div class="top">
     <h1 class="centered-header">
-    <img src="../../../img/ArrowIcon.png">
+    <img src="../../../img/ArrowIcon.png" id="back">
     Change your E-mail
 </h1>
 

@@ -6,6 +6,8 @@ import "./components/export";
 import "./screens/setProf/setting";
 import "./screens/profile/profile";
 import "./screens/settingMenu/settingMenu";
+import "./components/password/password";
+import "./components/accEmail/email";
 import { addObserver } from "./store/index";
 import { appState } from "./store/index";
 import { Screens } from "./types/navigation";
@@ -58,6 +60,22 @@ class AppContainer extends HTMLElement {
                 const menuSet = this.ownerDocument.createElement("setting-menu");
                 this.shadowRoot?.appendChild(menuSet);
                 break;
+
+                case Screens.PASS:
+                const menuPass = this.ownerDocument.createElement("password-form");
+                this.shadowRoot?.appendChild(menuPass);
+                break;
+
+                case Screens.EMAIL:
+                    const menuEmail = this.ownerDocument.createElement("email-form");
+                    this.shadowRoot?.appendChild(menuEmail);
+                    break;
+
+                    case Screens.DEACTIVATE:
+                    const menuDeac = this.ownerDocument.createElement("deactivate-form");
+                    this.shadowRoot?.appendChild(menuDeac);
+                    break;
+
       default:
         break;
     }

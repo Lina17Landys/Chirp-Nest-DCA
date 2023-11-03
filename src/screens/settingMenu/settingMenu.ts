@@ -13,9 +13,19 @@ class settingMenu extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    const buttonBack = this.shadowRoot?.querySelector("#back");
-    buttonBack?.addEventListener("click", () => {
-      dispatch(navigate(Screens.PROFILE));
+    const buttonPass = this.shadowRoot?.querySelector("#passInfo");
+    buttonPass?.addEventListener("click", () => {
+      dispatch(navigate(Screens.PASS));
+    });
+
+    const buttonEmail = this.shadowRoot?.querySelector("#emailInfo");
+    buttonEmail?.addEventListener("click", () => {
+      dispatch(navigate(Screens.EMAIL));
+    });
+
+    const buttonDeact = this.shadowRoot?.querySelector("#deactInfo");
+    buttonDeact?.addEventListener("click", () => {
+      dispatch(navigate(Screens.DEACTIVATE));
     });
   }
 

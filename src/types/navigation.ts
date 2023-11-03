@@ -6,4 +6,7 @@ export enum Screens {
     PROFILE = "PROFILE",
     SETTING = "SETTING",
     MENUSET = "MENUSET",
+    PASS = "PASS",
+    EMAIL = "EMAIL",
+    DEACTIVATE = "DEACTIVATE",
 }
