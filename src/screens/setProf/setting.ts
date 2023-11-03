@@ -1,4 +1,4 @@
-import styles from "./styles.css";
+import styles from "./styles.css"
 import { addObserver, appState, dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
@@ -27,7 +27,7 @@ class SetProf extends HTMLElement {
 
       this.shadowRoot!.innerHTML += `
         <img src="./img/ArrowIcon.png" id="back">
-        <form>
+      <div class="form">
           <label for="username">Username:</label>
           <input type="text" id="username" required>
           
@@ -42,7 +42,7 @@ class SetProf extends HTMLElement {
           
           <button type="button" id="privacy-settings">Privacy Settings</button>
           <button type="button" id="log-out">Log Out</button>
-        </form>
+       </div>
       `;
     }
   }
