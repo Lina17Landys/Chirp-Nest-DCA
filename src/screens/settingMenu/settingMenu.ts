@@ -13,6 +13,10 @@ class settingMenu extends HTMLElement {
 
   connectedCallback() {
     this.render();
+    const buttonBack = this.shadowRoot?.querySelector("#back");
+    buttonBack?.addEventListener("click", () => {
+      dispatch(navigate(Screens.PROFILE));
+    });
   }
 
   render() {
@@ -35,18 +39,11 @@ class settingMenu extends HTMLElement {
     </div>
 
     <ul class="m-right">
-    <li class="bold">
-        <img src="../../../img/user2Icon.png">
-        <div class="text-container">
-            <p class="bold-p">Account Information</p>
-            <p>See your account information.</p>
-        </div>
-    </li>
 
     <li class="bold">
         <img src="../../../img/keyIcon.png">
         <div class="text-container">
-            <p class="bold-p">Change your password</p>
+            <p class="bold-p" id="passInfo">Change your password</p>
             <p>Change or update your password.</p>
         </div>
     </li>
@@ -54,7 +51,7 @@ class settingMenu extends HTMLElement {
     <li class="bold">
         <img src="../../../img/mailIcon.png">
         <div class="text-container">
-            <p class="bold-p">Change your E-mail</p>
+            <p class="bold-p" id="emailInfo">Change your E-mail</p>
             <p>Change or update your E-mail.</p>
         </div>
     </li>
@@ -62,7 +59,7 @@ class settingMenu extends HTMLElement {
     <li class="bold">
         <img src="../../../img/circleIcon.png">
         <div class="text-container">
-            <p class="bold-p">Deactivate your account</p>
+            <p class="bold-p" id="deactInfo">Deactivate your account</p>
             <p>Find out how you can deactivate or suspend your account.</p>
         </div>
     </li>
