@@ -1,8 +1,14 @@
 import styles from "./styles.css"
+import { addObserver, appState, dispatch } from "../../store/index";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+import Sidebar from "../main/navegacion/sidebar"
+
 class settingMenu extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this)
   }
 
   connectedCallback() {
@@ -18,24 +24,9 @@ class settingMenu extends HTMLElement {
         this.shadowRoot?.appendChild(css);
   
         this.shadowRoot!.innerHTML +=`
-        <div class="container">
-        <div class="sidebar">
-                
-        <nav>
-            <ul class="navbar">
-            <li><img class="logo" src="../../../img/logo.png"></li>
+        <main style=" display: flex; flex-direction: row;  margin: 0; padding: 0;">
 
-            <li><img src="../../../img/homeIcon.png"><a href="#">Home</a></li>
-            <li><img src="../../../img/searchIcon.png"><a href="#">Explore</a></li>
-            <li><img src="../../../img/bellIcon.png"><a href="#">Notifications</a></li>
-            <li><img src="../../../img/profileIcon.png"><a href="#">Profile</a></li>
-                <div class="user">
-                    <img src="../../../img/profilePic.jpg" alt="Profile Picture">
-                    <button class="tweet-button">Tweet</button>
-                </div>
-            </ul>
-        </nav>
-    </div>
+        <sidebar-component></sidebar-component>
 
     <div class="menu-right">
     <div class="top">

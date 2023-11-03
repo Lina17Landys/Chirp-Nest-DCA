@@ -5,6 +5,7 @@ import "./screens/main/index";
 import "./components/export";
 import "./screens/setProf/setting";
 import "./screens/profile/profile";
+import "./screens/settingMenu/settingMenu";
 import { addObserver } from "./store/index";
 import { appState } from "./store/index";
 import { Screens } from "./types/navigation";
@@ -53,6 +54,10 @@ class AppContainer extends HTMLElement {
             this.shadowRoot?.appendChild(settingProf);
             break;
 
+            case Screens.MENUSET:
+                const menuSet = this.ownerDocument.createElement("setting-menu");
+                this.shadowRoot?.appendChild(menuSet);
+                break;
       default:
         break;
     }

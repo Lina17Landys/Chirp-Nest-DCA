@@ -5,4 +5,5 @@ export enum Screens {
     MAIN = "MAIN",
     PROFILE = "PROFILE",
     SETTING = "SETTING",
+    MENUSET = "MENUSET",
 }

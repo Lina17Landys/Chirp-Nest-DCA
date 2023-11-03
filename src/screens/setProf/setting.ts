@@ -20,6 +20,11 @@ class SetProf extends HTMLElement {
     buttonOut?.addEventListener("click", () => {
       dispatch(navigate(Screens.DASHBOARD));
     });
+
+    const buttonPriv = this.shadowRoot?.querySelector("#privacy");
+    buttonPriv?.addEventListener("click", () => {
+      dispatch(navigate(Screens.MENUSET));
+    });
   }
 
   render() {
