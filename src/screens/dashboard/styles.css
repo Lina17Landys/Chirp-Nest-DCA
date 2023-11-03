@@ -3,6 +3,7 @@ body {
   padding: 0;
   background: linear-gradient(rgba(73, 71, 142, 1), rgba(18, 34, 58, 1));
   height: 100vh;
+
 }
 
 * {
@@ -74,4 +75,24 @@ margin-left: 150px;
 
 .line {
   margin-left: 40px;
+}
+
+@media all and (max-width: 730px) {
+
+  #logoImg{
+    display:none;
+  }
+
+  .info-container {
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 140px;
+  }
+
+  #loginButton, #appleButton, #signUpButton {
+    border-radius: 10px;
+  }
 }

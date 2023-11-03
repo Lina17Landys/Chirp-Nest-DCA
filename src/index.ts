@@ -51,30 +51,30 @@ class AppContainer extends HTMLElement {
         this.shadowRoot?.appendChild(profile);
         break;
 
-        case Screens.SETTING:
-            const settingProf = this.ownerDocument.createElement("set-prof");
-            this.shadowRoot?.appendChild(settingProf);
-            break;
+      case Screens.SETTING:
+        const settingProf = this.ownerDocument.createElement("set-prof");
+        this.shadowRoot?.appendChild(settingProf);
+        break;
 
-            case Screens.MENUSET:
-                const menuSet = this.ownerDocument.createElement("setting-menu");
-                this.shadowRoot?.appendChild(menuSet);
-                break;
+      case Screens.MENUSET:
+        const menuSet = this.ownerDocument.createElement("setting-menu");
+        this.shadowRoot?.appendChild(menuSet);
+        break;
 
-                case Screens.PASS:
-                const menuPass = this.ownerDocument.createElement("password-form");
-                this.shadowRoot?.appendChild(menuPass);
-                break;
+      case Screens.PASS:
+        const menuPass = this.ownerDocument.createElement("password-form");
+        this.shadowRoot?.appendChild(menuPass);
+        break;
 
-                case Screens.EMAIL:
-                    const menuEmail = this.ownerDocument.createElement("email-form");
-                    this.shadowRoot?.appendChild(menuEmail);
-                    break;
+      case Screens.EMAIL:
+        const menuEmail = this.ownerDocument.createElement("email-form");
+        this.shadowRoot?.appendChild(menuEmail);
+        break;
 
-                    case Screens.DEACTIVATE:
-                    const menuDeac = this.ownerDocument.createElement("deactivate-form");
-                    this.shadowRoot?.appendChild(menuDeac);
-                    break;
+      case Screens.DEACTIVATE:
+        const menuDeac = this.ownerDocument.createElement("deactivate-form");
+        this.shadowRoot?.appendChild(menuDeac);
+        break;
 
       default:
         break;

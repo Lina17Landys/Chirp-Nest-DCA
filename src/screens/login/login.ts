@@ -24,10 +24,6 @@ class Login extends HTMLElement {
 
   }
 
-
-
-  
-
   render() {
 
     if (this.shadowRoot) {

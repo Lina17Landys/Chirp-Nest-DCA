@@ -36,7 +36,7 @@ class dashboard extends HTMLElement {
 
       this.shadowRoot!.innerHTML += `
       <main style="display: flex; flex-direction: row; ">
-      <img clas="logoImg" src="./img/logo.png">
+      <img class="logoImg" src="./img/logo.png" id="logoImg">
 
       <div class="info-container">
       <h1>Welcome to Chirp Nest!</h1>
