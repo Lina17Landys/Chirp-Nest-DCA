@@ -1,4 +1,5 @@
 import styles from "./styles.css";
+
 interface TweetData {
   user: string;
   content: string;
@@ -26,33 +27,43 @@ export default class GeneratePost extends HTMLElement {
       this.shadowRoot?.appendChild(css);
 
       this.shadowRoot!.innerHTML += `
-    <div class="tweet">
-    </div>
-            <div id="tweet-column"></div>
-        `;
+        <div class="tweet">
+        </div>
+        <div id="tweet-column"></div>
+      `;
     }
   }
 
   loadTweets() {
     const tweetColumn = this.shadowRoot?.querySelector("#tweet-column");
+    const storedTweets = JSON.parse(localStorage.getItem("tweets") || "[]");
 
-    const tweets = [
-      {
-        user: "omgNJ12",
-        content: "I like music and dancing.",
-      },
-      {
-        user: "banBaN",
-        content: "I like programming. #coding #webdev",
-      },
-    ];
+    if (storedTweets.length > 0) {
+      storedTweets.forEach((tweetData: TweetData) => {
+        const tweetDiv = this.createTweetElement(tweetData);
+        if (tweetColumn) {
+          tweetColumn.appendChild(tweetDiv);
+        }
+      });
+    } else {
+      const tweets = [
+        {
+          user: "omgNJ12",
+          content: "I like music and dancing.",
+        },
+        {
+          user: "banBaN",
+          content: "I like programming. #coding #webdev",
+        },
+      ];
 
-    tweets.forEach((tweetData) => {
-      const tweetDiv = this.createTweetElement(tweetData);
-      if (tweetColumn) {
-        tweetColumn.appendChild(tweetDiv);
-      }
-    });
+      tweets.forEach((tweetData) => {
+        const tweetDiv = this.createTweetElement(tweetData);
+        if (tweetColumn) {
+          tweetColumn.appendChild(tweetDiv);
+        }
+      });
+    }
   }
 
   createTweetElement(tweetData: TweetData) {
@@ -62,10 +73,9 @@ export default class GeneratePost extends HTMLElement {
     const userDiv = document.createElement("div");
     userDiv.classList.add("user-info");
     userDiv.innerHTML = `
-        
-            <img src="./img/pexels.jpg" alt="Profile Picture" class="profile-pic">
-            <h2>@${tweetData.user}</h2>
-        `;
+      <img src="./img/pexels.jpg" alt="Profile Picture" class="profile-pic">
+      <h2>@${tweetData.user}</h2>
+    `;
 
     const contentParagraph = document.createElement("p");
     contentParagraph.textContent = tweetData.content;
@@ -87,7 +97,12 @@ export default class GeneratePost extends HTMLElement {
       const tweetDiv = this.createTweetElement(newTweetData);
 
       tweetColumn!.insertBefore(tweetDiv, tweetColumn!.firstChild);
+
+      const storedTweets = JSON.parse(localStorage.getItem("tweets") || "[]");
+      storedTweets.unshift(newTweetData);
+      localStorage.setItem("tweets", JSON.stringify(storedTweets));
     }, 10000);
   }
 }
+
 customElements.define("post-generate", GeneratePost);
