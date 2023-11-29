@@ -15,27 +15,25 @@ class SignUp extends HTMLElement {
     this.render();
 
     setTimeout(() => {
-        const buttonLogin = this.shadowRoot?.querySelector('#loginButton');
-        buttonLogin?.addEventListener('click', () => {
-            dispatch(navigate(Screens.LOGIN));
-        });
+      const buttonLogin = this.shadowRoot?.querySelector('#loginButton');
+      buttonLogin?.addEventListener('click', () => {
+        dispatch(navigate(Screens.LOGIN));
+      });
 
-        const buttonCreateAcc = this.shadowRoot?.querySelector('#createBtn');
-        buttonCreateAcc?.addEventListener('click', (event) => {
-            event.preventDefault();
+      const buttonCreateAcc = this.shadowRoot?.querySelector('#createBtn');
+      buttonCreateAcc?.addEventListener('click', async (event) => {
+        event.preventDefault();
 
-            const emailInput = this.shadowRoot?.querySelector('#email') as HTMLInputElement;
-            const pass1Input = this.shadowRoot?.querySelector('#pass1') as HTMLInputElement;
+        const emailInput = this.shadowRoot?.querySelector('#email') as HTMLInputElement;
+        const pass1Input = this.shadowRoot?.querySelector('#pass1') as HTMLInputElement;
 
-            if (this.createAccount()) {
-                save({ email: emailInput.value, password: pass1Input.value });
-                dispatch(navigate(Screens.MAIN));
-            }
-        });
+        if (this.createAccount()) {
+          await save({ email: emailInput.value, password: pass1Input.value });
+          dispatch(navigate(Screens.MAIN));
+        }
+      });
     }, 0);
-}
-
-
+  }
 
   createAccount() {
     const emailInput = this.shadowRoot?.querySelector('#email') as HTMLInputElement;
@@ -55,7 +53,7 @@ class SignUp extends HTMLElement {
       return false;
     }
 
-    alert(`User created succesfully\nEmail: ${email}\nPassword: ${password1}`);
+    alert(`User created successfully\nEmail: ${email}`);
 
     const form = this.shadowRoot?.querySelector('form') as HTMLFormElement;
     form.reset();
@@ -65,76 +63,76 @@ class SignUp extends HTMLElement {
 
   render() {
     if (this.shadowRoot) {
-        this.shadowRoot.innerHTML = ``;
+      this.shadowRoot.innerHTML = ``;
 
-        const css = this.ownerDocument.createElement("style");
-        css.innerHTML = styles;
-        this.shadowRoot?.appendChild(css);
+      const css = this.ownerDocument.createElement("style");
+      css.innerHTML = styles;
+      this.shadowRoot?.appendChild(css);
 
-        const container = this.ownerDocument.createElement("div");
-        container.classList.add("form-container");
+      const container = this.ownerDocument.createElement("div");
+      container.classList.add("form-container");
 
-        const cutImg = this.ownerDocument.createElement("img");
-        cutImg.classList.add("cutImg");
-        cutImg.src = "./img/signUpCut.png";
-        container.appendChild(cutImg);
+      const cutImg = this.ownerDocument.createElement("img");
+      cutImg.classList.add("cutImg");
+      cutImg.src = "./img/signUpCut.png";
+      container.appendChild(cutImg);
 
-        const formBlock = this.ownerDocument.createElement("div");
-        formBlock.classList.add("form-block");
+      const formBlock = this.ownerDocument.createElement("div");
+      formBlock.classList.add("form-block");
 
-        const form = this.ownerDocument.createElement("form");
+      const form = this.ownerDocument.createElement("form");
 
-        const loginButton = this.ownerDocument.createElement("button");
-        loginButton.id = "loginButton";
-        loginButton.textContent = "Log in";
-        loginButton.addEventListener('click', () => {
-            dispatch(navigate(Screens.LOGIN));
-        });
-        form.appendChild(loginButton);
+      const loginButton = this.ownerDocument.createElement("button");
+      loginButton.id = "loginButton";
+      loginButton.textContent = "Log in";
+      loginButton.addEventListener('click', () => {
+        dispatch(navigate(Screens.LOGIN));
+      });
+      form.appendChild(loginButton);
 
-        const emailLabel = this.ownerDocument.createElement("h1");
-        emailLabel.textContent = "E-mail";
-        form.appendChild(emailLabel);
+      const emailLabel = this.ownerDocument.createElement("h1");
+      emailLabel.textContent = "E-mail";
+      form.appendChild(emailLabel);
 
-        const emailInput = this.ownerDocument.createElement("input");
-        emailInput.type = "email";
-        emailInput.id = "email";
-        emailInput.placeholder = "E-mail";
-        form.appendChild(emailInput);
+      const emailInput = this.ownerDocument.createElement("input");
+      emailInput.type = "email";
+      emailInput.id = "email";
+      emailInput.placeholder = "E-mail";
+      form.appendChild(emailInput);
 
-        const passLabel = this.ownerDocument.createElement("h1");
-        passLabel.textContent = "Password";
-        form.appendChild(passLabel);
+      const passLabel = this.ownerDocument.createElement("h1");
+      passLabel.textContent = "Password";
+      form.appendChild(passLabel);
 
-        const pass1Input = this.ownerDocument.createElement("input");
-        pass1Input.type = "password";
-        pass1Input.id = "pass1";
-        pass1Input.placeholder = "Password";
-        form.appendChild(pass1Input);
+      const pass1Input = this.ownerDocument.createElement("input");
+      pass1Input.type = "password";
+      pass1Input.id = "pass1";
+      pass1Input.placeholder = "Password";
+      form.appendChild(pass1Input);
 
-        const repeatPassLabel = this.ownerDocument.createElement("h1");
-        repeatPassLabel.textContent = "Repeat password";
-        form.appendChild(repeatPassLabel);
+      const repeatPassLabel = this.ownerDocument.createElement("h1");
+      repeatPassLabel.textContent = "Repeat password";
+      form.appendChild(repeatPassLabel);
 
-        const pass2Input = this.ownerDocument.createElement("input");
-        pass2Input.type = "password";
-        pass2Input.id = "pass2";
-        pass2Input.placeholder = "Password";
-        form.appendChild(pass2Input);
+      const pass2Input = this.ownerDocument.createElement("input");
+      pass2Input.type = "password";
+      pass2Input.id = "pass2";
+      pass2Input.placeholder = "Password";
+      form.appendChild(pass2Input);
 
-        const createButton = this.ownerDocument.createElement("button");
-        createButton.classList.add("btn");
-        createButton.id = "createBtn";
-        createButton.textContent = "Create account";
-        form.appendChild(createButton);
+      const createButton = this.ownerDocument.createElement("button");
+      createButton.classList.add("btn");
+      createButton.id = "createBtn";
+      createButton.textContent = "Create account";
+      form.appendChild(createButton);
 
-        formBlock.appendChild(form);
-        container.appendChild(formBlock);
-        this.shadowRoot?.appendChild(container);
+      formBlock.appendChild(form);
+      container.appendChild(formBlock);
+      this.shadowRoot?.appendChild(container);
+
+      
     }
-}
-
-
+  }
 }
 
 customElements.define("signup-container", SignUp);
