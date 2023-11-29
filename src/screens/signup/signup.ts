@@ -2,6 +2,7 @@ import styles from "./styles.css";
 import { addObserver, appState, dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
+import { save } from "../../utils/firebase";
 
 class SignUp extends HTMLElement {
   constructor() {
@@ -33,20 +34,17 @@ class SignUp extends HTMLElement {
     const password1 = pass1Input.value;
     const password2 = pass2Input.value;
 
-    // Verificar que las contraseñas coincidan
     if (password1 !== password2) {
-      alert("Las contraseñas no coinciden");
+      alert("Passwords don't match");
       return false;
     }
 
-    // Simular una llamada de creación de usuario exitosa
-    alert(`Usuario creado exitosamente\nEmail: ${email}\nContraseña: ${password1}`);
+    alert(`User created succesfully\nEmail: ${email}\nPassword: ${password1}`);
 
-    // Limpiar el formulario después de crear el usuario
     const form = this.shadowRoot?.querySelector('form') as HTMLFormElement;
     form.reset();
 
-    return true; // Devolver true si las contraseñas coinciden
+    return true;
   }
 
   render() {
@@ -69,7 +67,7 @@ class SignUp extends HTMLElement {
               <input type="password" id="pass1" placeholder="Password" />
               <h1>Repeat password</h1>
               <input type="password" id="pass2" placeholder="Password" />
-              <button class="btn" id="createBtn">Create account</button>
+              <button class="btn" id="createBtn" onclick="save()" >Create account</button>
             </form>
           </div>
         </div>
