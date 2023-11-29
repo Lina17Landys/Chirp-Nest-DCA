@@ -1,15 +1,22 @@
 import { initializeApp } from "firebase/app";
 import { doc, getFirestore } from "firebase/firestore";
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
 import { collection, addDoc } from "firebase/firestore"; 
 
-export async function save() {
+const firebaseConfig = {
+    apiKey: "AIzaSyBrgG1rKgzmoe5u8K-zwu3_CZ256hX6mKA",
+    authDomain: "chirp-nest-bd.firebaseapp.com",
+    projectId: "chirp-nest-bd",
+    storageBucket: "chirp-nest-bd.appspot.com",
+    messagingSenderId: "219221827008",
+    appId: "1:219221827008:web:3eb2856ecd91be244d3c25"
+  };
+  const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
+export async function save(userCredentials: { email: string; password: string }) {
     try {
-        const email = (document.getElementById("email") as HTMLInputElement)?.value;
-        const password = (document.getElementById("pass1") as HTMLInputElement)?.value;
+        const { email, password } = userCredentials;
 
         if (email && password) {
             const docRef = await addDoc(collection(db, "users"), {
@@ -17,7 +24,7 @@ export async function save() {
                 password: password,
             });
 
-            console.log("Document written with ID: ", docRef.id);
+            console.log("user created");
         } else {
             console.error("Email or password is null or undefined");
         }
@@ -25,4 +32,4 @@ export async function save() {
         console.error("Error adding document: ", e);
     }
 }
-save;
+

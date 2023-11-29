@@ -8,22 +8,34 @@ class SignUp extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this);
   }
 
   connectedCallback() {
     this.render();
-    const buttonLogin = this.shadowRoot?.querySelector('#loginButton');
-    buttonLogin?.addEventListener('click', () => {
-      dispatch(navigate(Screens.LOGIN));
-    });
 
-    const buttonCreateAcc = this.shadowRoot?.querySelector('#createBtn');
-    buttonCreateAcc?.addEventListener('click', () => {
-      if (this.createAccount()) {
-        dispatch(navigate(Screens.MAIN));
-      }
-    });
-  }
+    setTimeout(() => {
+        const buttonLogin = this.shadowRoot?.querySelector('#loginButton');
+        buttonLogin?.addEventListener('click', () => {
+            dispatch(navigate(Screens.LOGIN));
+        });
+
+        const buttonCreateAcc = this.shadowRoot?.querySelector('#createBtn');
+        buttonCreateAcc?.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const emailInput = this.shadowRoot?.querySelector('#email') as HTMLInputElement;
+            const pass1Input = this.shadowRoot?.querySelector('#pass1') as HTMLInputElement;
+
+            if (this.createAccount()) {
+                save({ email: emailInput.value, password: pass1Input.value });
+                dispatch(navigate(Screens.MAIN));
+            }
+        });
+    }, 0);
+}
+
+
 
   createAccount() {
     const emailInput = this.shadowRoot?.querySelector('#email') as HTMLInputElement;
@@ -33,6 +45,10 @@ class SignUp extends HTMLElement {
     const email = emailInput.value;
     const password1 = pass1Input.value;
     const password2 = pass2Input.value;
+
+    console.log("Email:", email);
+    console.log("Password1:", password1);
+    console.log("Password2:", password2);
 
     if (password1 !== password2) {
       alert("Passwords don't match");
@@ -49,31 +65,76 @@ class SignUp extends HTMLElement {
 
   render() {
     if (this.shadowRoot) {
-      this.shadowRoot.innerHTML = ``;
+        this.shadowRoot.innerHTML = ``;
 
-      const css = this.ownerDocument.createElement("style");
-      css.innerHTML = styles;
-      this.shadowRoot?.appendChild(css);
+        const css = this.ownerDocument.createElement("style");
+        css.innerHTML = styles;
+        this.shadowRoot?.appendChild(css);
 
-      this.shadowRoot.innerHTML += `
-        <div class="form-container">
-          <img class="cutImg" src="./img/signUpCut.png">
-          <div class="form-block">
-            <form>
-              <button id="loginButton">Log in</button>
-              <h1>E-mail</h1>
-              <input type="email" id="email" placeholder="E-mail" />
-              <h1>Password</h1>
-              <input type="password" id="pass1" placeholder="Password" />
-              <h1>Repeat password</h1>
-              <input type="password" id="pass2" placeholder="Password" />
-              <button class="btn" id="createBtn" onclick="save()" >Create account</button>
-            </form>
-          </div>
-        </div>
-      `;
+        const container = this.ownerDocument.createElement("div");
+        container.classList.add("form-container");
+
+        const cutImg = this.ownerDocument.createElement("img");
+        cutImg.classList.add("cutImg");
+        cutImg.src = "./img/signUpCut.png";
+        container.appendChild(cutImg);
+
+        const formBlock = this.ownerDocument.createElement("div");
+        formBlock.classList.add("form-block");
+
+        const form = this.ownerDocument.createElement("form");
+
+        const loginButton = this.ownerDocument.createElement("button");
+        loginButton.id = "loginButton";
+        loginButton.textContent = "Log in";
+        loginButton.addEventListener('click', () => {
+            dispatch(navigate(Screens.LOGIN));
+        });
+        form.appendChild(loginButton);
+
+        const emailLabel = this.ownerDocument.createElement("h1");
+        emailLabel.textContent = "E-mail";
+        form.appendChild(emailLabel);
+
+        const emailInput = this.ownerDocument.createElement("input");
+        emailInput.type = "email";
+        emailInput.id = "email";
+        emailInput.placeholder = "E-mail";
+        form.appendChild(emailInput);
+
+        const passLabel = this.ownerDocument.createElement("h1");
+        passLabel.textContent = "Password";
+        form.appendChild(passLabel);
+
+        const pass1Input = this.ownerDocument.createElement("input");
+        pass1Input.type = "password";
+        pass1Input.id = "pass1";
+        pass1Input.placeholder = "Password";
+        form.appendChild(pass1Input);
+
+        const repeatPassLabel = this.ownerDocument.createElement("h1");
+        repeatPassLabel.textContent = "Repeat password";
+        form.appendChild(repeatPassLabel);
+
+        const pass2Input = this.ownerDocument.createElement("input");
+        pass2Input.type = "password";
+        pass2Input.id = "pass2";
+        pass2Input.placeholder = "Password";
+        form.appendChild(pass2Input);
+
+        const createButton = this.ownerDocument.createElement("button");
+        createButton.classList.add("btn");
+        createButton.id = "createBtn";
+        createButton.textContent = "Create account";
+        form.appendChild(createButton);
+
+        formBlock.appendChild(form);
+        container.appendChild(formBlock);
+        this.shadowRoot?.appendChild(container);
     }
-  }
+}
+
+
 }
 
 customElements.define("signup-container", SignUp);
