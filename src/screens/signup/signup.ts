@@ -2,7 +2,7 @@ import styles from "./styles.css";
 import { addObserver, appState, dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
-import { save } from "../../utils/firebase";
+//import { save } from "../../utils/firebase";
 
 class SignUp extends HTMLElement {
   constructor() {
@@ -28,7 +28,7 @@ class SignUp extends HTMLElement {
         const pass1Input = this.shadowRoot?.querySelector('#pass1') as HTMLInputElement;
 
         if (this.createAccount()) {
-          await save({ email: emailInput.value, password: pass1Input.value });
+         // await save({ email: emailInput.value, password: pass1Input.value });
           dispatch(navigate(Screens.MAIN));
         }
       });
