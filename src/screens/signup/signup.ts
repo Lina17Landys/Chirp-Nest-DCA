@@ -1,14 +1,20 @@
 import styles from "./styles.css";
-import { dispatch } from "../../store/index";
+import { dispatch, addObserver } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/store";
+import firebase from "../../utils/firebase";
 //import { save } from "../../utils/firebase";
+
+
+const credentials ={
+  email:"",
+  password:""};
 
 class SignUp extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-  
+    addObserver(this);
   }
 
   connectedCallback() {
@@ -27,7 +33,7 @@ class SignUp extends HTMLElement {
         const emailInput = this.shadowRoot?.querySelector('#email') as HTMLInputElement;
         const pass1Input = this.shadowRoot?.querySelector('#pass1') as HTMLInputElement;
 
-        if (this.createAccount()) {
+        if (await this.createAccount()) {
          // await save({ email: emailInput.value, password: pass1Input.value });
           dispatch(navigate(Screens.MAIN));
         }
@@ -35,7 +41,7 @@ class SignUp extends HTMLElement {
     }, 0);
   }
 
-  createAccount() {
+  async createAccount() {
     const emailInput = this.shadowRoot?.querySelector('#email') as HTMLInputElement;
     const pass1Input = this.shadowRoot?.querySelector('#pass1') as HTMLInputElement;
     const pass2Input = this.shadowRoot?.querySelector('#pass2') as HTMLInputElement;
@@ -52,6 +58,17 @@ class SignUp extends HTMLElement {
       alert("Passwords don't match");
       return false;
     }
+
+    credentials.email = email;
+    credentials.password = password1;
+    const user = await firebase.registerUser(credentials);
+    console.log(user);
+    if(user){
+      console.log("works");
+      
+        //dispatch(navigate(Screens.LOGIN))
+        //sessionStorage.clear();
+    };
 
     alert(`User created successfully\nEmail: ${email}`);
 
@@ -98,6 +115,10 @@ class SignUp extends HTMLElement {
       emailInput.type = "email";
       emailInput.id = "email";
       emailInput.placeholder = "E-mail";
+      emailInput.addEventListener(
+        "change",
+        (e:any)=>(credentials.email=e.target.value)
+    );
       form.appendChild(emailInput);
 
       const passLabel = this.ownerDocument.createElement("h1");
@@ -108,6 +129,10 @@ class SignUp extends HTMLElement {
       pass1Input.type = "password";
       pass1Input.id = "pass1";
       pass1Input.placeholder = "Password";
+      pass1Input.addEventListener(
+        "change",
+        (e:any)=>(credentials.password=e.target.value)
+    );
       form.appendChild(pass1Input);
 
       const repeatPassLabel = this.ownerDocument.createElement("h1");
@@ -118,6 +143,10 @@ class SignUp extends HTMLElement {
       pass2Input.type = "password";
       pass2Input.id = "pass2";
       pass2Input.placeholder = "Password";
+      pass2Input.addEventListener(
+        "change",
+        (e:any)=>(credentials.password=e.target.value)
+    );
       form.appendChild(pass2Input);
 
       const createButton = this.ownerDocument.createElement("button");

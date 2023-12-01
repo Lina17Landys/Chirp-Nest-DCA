@@ -3,8 +3,9 @@ import firebaseConfig from "../../firebaseConfig"
 import { Screens } from "../types/store";
 import { dispatch } from "../store";
 import { navigate, setUserCredentials } from "../store/actions";
+import{ getStorage } from "firebase/storage"
 import{getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence} from "firebase/auth";
-import { doc, getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { doc, getFirestore, collection, addDoc, getDocs, query, orderBy } from "firebase/firestore";
 
 
 const app = initializeApp(firebaseConfig);

@@ -1,8 +1,8 @@
 export default {
-    apiKey: "AIzaSyBrgG1rKgzmoe5u8K-zwu3_CZ256hX6mKA",
-    authDomain: "chirp-nest-bd.firebaseapp.com",
-    projectId: "chirp-nest-bd",
-    storageBucket: "chirp-nest-bd.appspot.com",
-    messagingSenderId: "219221827008",
-    appId: "1:219221827008:web:3eb2856ecd91be244d3c25"
+  apiKey: "AIzaSyB14alZInqJphoeKAEzmBHriFi_qh32S_U",
+  authDomain: "dca-chirp-nest.firebaseapp.com",
+  projectId: "dca-chirp-nest",
+  storageBucket: "dca-chirp-nest.appspot.com",
+  messagingSenderId: "737414516706",
+  appId: "1:737414516706:web:0c9a0e31c8226e65a2f3bb"
   };
