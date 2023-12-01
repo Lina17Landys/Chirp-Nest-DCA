@@ -1,4 +1,4 @@
-const firebaseConfig = {
+export default {
     apiKey: "AIzaSyBrgG1rKgzmoe5u8K-zwu3_CZ256hX6mKA",
     authDomain: "chirp-nest-bd.firebaseapp.com",
     projectId: "chirp-nest-bd",

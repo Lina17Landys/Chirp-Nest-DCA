@@ -1,17 +1,11 @@
 import { initializeApp } from "firebase/app";
+import firebaseConfig from "../../firebaseConfig"
+import { Screens } from "../types/store";
 import { dispatch } from "../store";
 import { navigate, setUserCredentials } from "../store/actions";
 import{getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence} from "firebase/auth";
 import { doc, getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBrgG1rKgzmoe5u8K-zwu3_CZ256hX6mKA",
-    authDomain: "chirp-nest-bd.firebaseapp.com",
-    projectId: "chirp-nest-bd",
-    storageBucket: "chirp-nest-bd.appspot.com",
-    messagingSenderId: "219221827008",
-    appId: "1:219221827008:web:3eb2856ecd91be244d3c25"
-};
 
 const app = initializeApp(firebaseConfig);
 const auth=getAuth(app);
@@ -77,7 +71,7 @@ const loginUser = async ({
 };
 
 export async function printUsersCollection() {
-    const querySnapshot = await getDocs(collection(db, "users"));
+    const querySnapshot = await getDocs(collection(db, "user"));
     querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data()}`);
     });
