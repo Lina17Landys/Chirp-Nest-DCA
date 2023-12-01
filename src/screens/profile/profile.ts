@@ -1,5 +1,5 @@
 import styles from "./styles.css";
-import { dispatch } from "../../store/index";
+import { dispatch, addObserver } from "../../store/index";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/store";
 
@@ -8,6 +8,7 @@ class Profile extends HTMLElement {
     constructor(){
         super();
         this.attachShadow({mode:"open"})
+        addObserver(this);
     }
 
     async connectedCallback() {

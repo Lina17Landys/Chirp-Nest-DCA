@@ -21,6 +21,11 @@ export default class Sidebar extends HTMLElement {
       dispatch(navigate(Screens.PROFILE))
     })
 
+    const buttonNews = this.shadowRoot?.querySelector('#explore');
+    buttonNews?.addEventListener(('click'), () =>{
+      dispatch(navigate(Screens.EXPLORE))
+    })
+
   }
 
   render() {

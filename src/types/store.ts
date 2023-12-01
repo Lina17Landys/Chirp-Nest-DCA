@@ -11,6 +11,8 @@ MENUSET = "MENUSET",
 PASS = "PASS",
 EMAIL = "EMAIL",
 DEACTIVATE = "DEACTIVATE",
+EXPLORE = "EXPLORE",
+
 }
 
 export type AppState = {

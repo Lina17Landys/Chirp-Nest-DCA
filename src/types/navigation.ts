@@ -9,4 +9,5 @@ export enum Screens {
     PASS = "PASS",
     EMAIL = "EMAIL",
     DEACTIVATE = "DEACTIVATE",
+    EXPLORE = "EXPLORE",
     }

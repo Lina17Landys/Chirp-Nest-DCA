@@ -8,6 +8,7 @@ import "./screens/profile/profile";
 import "./screens/settingMenu/settingMenu";
 import "./components/password/password";
 import "./components/accEmail/email";
+import "./screens/explore/explore"
 import { addObserver } from "./store/index";
 import { appState } from "./store/index";
 import { Screens } from "./types/navigation";
@@ -74,6 +75,11 @@ class AppContainer extends HTMLElement {
       case Screens.DEACTIVATE:
         const menuDeac = this.ownerDocument.createElement("deactivate-form");
         this.shadowRoot?.appendChild(menuDeac);
+        break;
+
+        case Screens.EXPLORE:
+        const explore = this.ownerDocument.createElement("explore-bar");
+        this.shadowRoot?.appendChild(explore);
         break;
 
       default:
