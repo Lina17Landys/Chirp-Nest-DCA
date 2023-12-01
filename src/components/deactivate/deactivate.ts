@@ -1,8 +1,8 @@
 import styles from "./styles.css"
 import Sidebar from "../../screens/main/navegacion/sidebar";
-import { addObserver, appState, dispatch } from "../../store/index";
+import { dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
-import { Screens } from "../../types/navigation";
+import { Screens } from "../../types/store";
 
 class Deactivate extends HTMLElement {
     constructor() {

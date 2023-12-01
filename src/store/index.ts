@@ -1,9 +1,9 @@
-import { Screens } from "../types/navigation";
-import { Observer } from "../types/store";
+import Storage,{PersistanceKeys} from "../utils/storage";
 import { reducer } from "./reducer";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { navigate, setUserCredentials } from "./actions";
+import{Actions,AppState,Observed,Screens}from "../types/store"
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -14,24 +14,33 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-const emptyState = {
-  screen: Screens.DASHBOARD,
-  user: {}
+const emptyState: AppState = {
+    screen: Screens.LOGIN,
+   
+    user: {},
 };
 
-export let appState = emptyState;
+export let appState = Storage.get<AppState>({
+    key: PersistanceKeys.STORE,
+    defaultValue: emptyState,
+});
 
-let observers: Observer[] = [];
+let observers: Observed[] = [];
+
+const persistStore = (state: AppState) =>
+    Storage.set({ key: PersistanceKeys.STORE, value: state });
 
 const notifyObservers = () => observers.forEach((o) => o.render());
 
-export const dispatch = (action: any) => {
-  const clone = JSON.parse(JSON.stringify(appState));
-  const newState = reducer(action, clone);
-  appState = newState;
-  notifyObservers();
+export const dispatch = (action: Actions) => {
+    const clone = JSON.parse(JSON.stringify(appState));
+    const newState = reducer(action, clone);
+    appState = newState;
+
+    persistStore(newState);
+    notifyObservers();
 };
 
-export const addObserver = (ref: Observer) => {
-  observers = [...observers, ref];
+export const addObserver = (ref: Observed) => {
+    observers = [...observers, ref];
 };

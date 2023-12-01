@@ -1,7 +1,7 @@
 import styles from "./styles.css";
-import { addObserver, appState, dispatch } from "../../store/index";
+import { dispatch } from "../../store/index";
 import { navigate } from "../../store/actions";
-import { Screens } from "../../types/navigation";
+import { Screens } from "../../types/store";
 
 // No se porque me da un error al correr build por el nombre "Field 'browser' doesn't contain a valid alias configuration
 // /Users/lina_landys/Desktop/trabajos/DCA/chirp nest/src/screens/dashboard/index.tsx doesn't exist" pov: si existe pero no??
@@ -10,7 +10,6 @@ class dashboard extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    addObserver(this);
   }
 
   async connectedCallback() {
